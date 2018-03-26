@@ -144,7 +144,7 @@ class TestReversi
 			else												echo " - [Error] setmMasuPointB() FAILUR ". $var. "\n";
 			// *** TEST CASE 16 *** //
 			$var = $testObj->getmMasuPointCntB();$allCnt++;
-			if($var == 4){										echo " - [OK] getmMasuPointCntB() SUCCESS\n";$curCnt++;}
+			if($var == 8){										echo " - [OK] getmMasuPointCntB() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getmMasuPointCntB() FAILUR ". $var. "\n";
 			// *** TEST CASE 17 *** //
 			$testObj->setmMasuPointCntB($testVar);$allCnt++;
@@ -153,7 +153,7 @@ class TestReversi
 			else												echo " - [Error] setmMasuPointCntB() FAILUR ". $var. "\n";
 			// *** TEST CASE 18 *** //
 			$var = $testObj->getmMasuBetCntB();$allCnt++;
-			if($var == 2){										echo " - [OK] getmMasuBetCntB() SUCCESS\n";$curCnt++;}
+			if($var == 4){										echo " - [OK] getmMasuBetCntB() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getmMasuBetCntB() FAILUR ". $var. "\n";
 			// *** TEST CASE 19 *** //
 			$testObj->setmMasuBetCntB($testVar);$allCnt++;
@@ -212,7 +212,7 @@ class TestReversi
 			else												echo " - [Error] setmMasuPointW() FAILUR ". $var. "\n";
 			// *** TEST CASE 30 *** //
 			$var = $testObj->getmMasuPointCntW();$allCnt++;
-			if($var == 4){										echo " - [OK] getmMasuPointCntW() SUCCESS\n";$curCnt++;}
+			if($var == 8){										echo " - [OK] getmMasuPointCntW() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getmMasuPointCntW() FAILUR ". $var. "\n";
 			// *** TEST CASE 31 *** //
 			$testObj->setmMasuPointCntW($testVar);$allCnt++;
@@ -221,7 +221,7 @@ class TestReversi
 			else												echo " - [Error] setmMasuPointCntW() FAILUR ". $var. "\n";
 			// *** TEST CASE 32 *** //
 			$var = $testObj->getmMasuBetCntW();$allCnt++;
-			if($var == 2){										echo " - [OK] getmMasuBetCntW() SUCCESS\n";$curCnt++;}
+			if($var == 4){										echo " - [OK] getmMasuBetCntW() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getmMasuBetCntW() FAILUR ". $var. "\n";
 			// *** TEST CASE 33 *** //
 			$testObj->setmMasuBetCntW($testVar);$allCnt++;
@@ -229,37 +229,173 @@ class TestReversi
 			if($var == $testVar){								echo " - [OK] setmMasuBetCntW() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] setmMasuBetCntW() FAILUR ". $var. "\n";
 			// *** TEST CASE 34 *** //
+			$var = $testObj->getmMasuStsEnaL();$allCnt++;
+			if($var != NULL){									echo " - [OK] getmMasuStsEnaL() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] getmMasuStsEnaL() FAILUR ". $var. "\n";
+			// *** TEST CASE 35 *** //
+			$oldVar = $var;
+			$testObj->setmMasuStsEnaL($oldVar);$allCnt++;
+			$var = $testObj->getmMasuStsEnaL();
+			if($var == $oldVar){								echo " - [OK] setmMasuStsEnaL() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] setmMasuStsEnaL() FAILUR ". $var. "\n";
+			// *** TEST CASE 36 *** //
+			$var = $testObj->getmMasuStsCntL();$allCnt++;
+			if($var != NULL){									echo " - [OK] getmMasuStsCntL() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] getmMasuStsCntL() FAILUR ". $var. "\n";
+			// *** TEST CASE 37 *** //
+			$oldVar = $var;
+			$testObj->setmMasuStsCntL($oldVar);$allCnt++;
+			$var = $testObj->getmMasuStsCntL();
+			if($var == $oldVar){								echo " - [OK] setmMasuStsCntL() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] setmMasuStsCntL() FAILUR ". $var. "\n";
+			// *** TEST CASE 38 *** //
+			$var = $testObj->getmMasuStsPassL();$allCnt++;
+			if($var != NULL){									echo " - [OK] getmMasuStsPassL() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] getmMasuStsPassL() FAILUR ". $var. "\n";
+			// *** TEST CASE 39 *** //
+			$oldVar = $var;
+			$testObj->setmMasuStsPassL($oldVar);$allCnt++;
+			$var = $testObj->getmMasuStsPassL();
+			if($var == $oldVar){								echo " - [OK] setmMasuStsPassL() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] setmMasuStsPassL() FAILUR ". $var. "\n";
+			// *** TEST CASE 40 *** //
+			$var = $testObj->getmMasuStsAnzL();$allCnt++;
+			if($var != NULL){									echo " - [OK] getmMasuStsAnzL() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] getmMasuStsAnzL() FAILUR ". $var. "\n";
+			// *** TEST CASE 41 *** //
+			$oldVar = $var;
+			$testObj->setmMasuStsAnzL($oldVar);$allCnt++;
+			$var = $testObj->getmMasuStsAnzL();
+			if($var == $oldVar){								echo " - [OK] setmMasuStsAnzL() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] setmMasuStsAnzL() FAILUR ". $var. "\n";
+			// *** TEST CASE 42 *** //
+			$var = $testObj->getmMasuPointL();$allCnt++;
+			if($var != NULL){									echo " - [OK] getmMasuPointL() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] getmMasuPointL() FAILUR ". $var. "\n";
+			// *** TEST CASE 43 *** //
+			$oldVar = $var;
+			$testObj->setmMasuPointL($oldVar);$allCnt++;
+			$var = $testObj->getmMasuPointL();
+			if($var == $oldVar){								echo " - [OK] setmMasuPointL() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] setmMasuPointL() FAILUR ". $var. "\n";
+			// *** TEST CASE 44 *** //
+			$var = $testObj->getmMasuPointCntL();$allCnt++;
+			if($var == 8){										echo " - [OK] getmMasuPointCntL() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] getmMasuPointCntL() FAILUR ". $var. "\n";
+			// *** TEST CASE 45 *** //
+			$testObj->setmMasuPointCntL($testVar);$allCnt++;
+			$var = $testObj->getmMasuPointCntL();
+			if($var == $testVar){								echo " - [OK] setmMasuPointCntL() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] setmMasuPointCntL() FAILUR ". $var. "\n";
+			// *** TEST CASE 46 *** //
+			$var = $testObj->getmMasuBetCntL();$allCnt++;
+			if($var == 4){										echo " - [OK] getmMasuBetCntL() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] getmMasuBetCntL() FAILUR ". $var. "\n";
+			// *** TEST CASE 47 *** //
+			$testObj->setmMasuBetCntL($testVar);$allCnt++;
+			$var = $testObj->getmMasuBetCntL();
+			if($var == $testVar){								echo " - [OK] setmMasuBetCntL() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] setmMasuBetCntL() FAILUR ". $var. "\n";
+			// *** TEST CASE 48 *** //
+			$var = $testObj->getmMasuStsEnaR();$allCnt++;
+			if($var != NULL){									echo " - [OK] getmMasuStsEnaR() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] getmMasuStsEnaR() FAIRUR ". $var. "\n";
+			// *** TEST CASE 49 *** //
+			$oldVar = $var;
+			$testObj->setmMasuStsEnaR($oldVar);$allCnt++;
+			$var = $testObj->getmMasuStsEnaR();
+			if($var == $oldVar){								echo " - [OK] setmMasuStsEnaR() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] setmMasuStsEnaR() FAIRUR ". $var. "\n";
+			// *** TEST CASE 50 *** //
+			$var = $testObj->getmMasuStsCntR();$allCnt++;
+			if($var != NULL){									echo " - [OK] getmMasuStsCntR() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] getmMasuStsCntR() FAIRUR ". $var. "\n";
+			// *** TEST CASE 51 *** //
+			$oldVar = $var;
+			$testObj->setmMasuStsCntR($oldVar);$allCnt++;
+			$var = $testObj->getmMasuStsCntR();
+			if($var == $oldVar){								echo " - [OK] setmMasuStsCntR() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] setmMasuStsCntR() FAIRUR ". $var. "\n";
+			// *** TEST CASE 52 *** //
+			$var = $testObj->getmMasuStsPassR();$allCnt++;
+			if($var != NULL){									echo " - [OK] getmMasuStsPassR() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] getmMasuStsPassR() FAIRUR ". $var. "\n";
+			// *** TEST CASE 53 *** //
+			$oldVar = $var;
+			$testObj->setmMasuStsPassR($oldVar);$allCnt++;
+			$var = $testObj->getmMasuStsPassR();
+			if($var == $oldVar){								echo " - [OK] setmMasuStsPassR() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] setmMasuStsPassR() FAIRUR ". $var. "\n";
+			// *** TEST CASE 54 *** //
+			$var = $testObj->getmMasuStsAnzR();$allCnt++;
+			if($var != NULL){									echo " - [OK] getmMasuStsAnzR() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] getmMasuStsAnzR() FAIRUR ". $var. "\n";
+			// *** TEST CASE 55 *** //
+			$oldVar = $var;
+			$testObj->setmMasuStsAnzR($oldVar);$allCnt++;
+			$var = $testObj->getmMasuStsAnzR();
+			if($var == $oldVar){								echo " - [OK] setmMasuStsAnzR() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] setmMasuStsAnzR() FAIRUR ". $var. "\n";
+			// *** TEST CASE 56 *** //
+			$var = $testObj->getmMasuPointR();$allCnt++;
+			if($var != NULL){									echo " - [OK] getmMasuPointR() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] getmMasuPointR() FAIRUR ". $var. "\n";
+			// *** TEST CASE 57 *** //
+			$oldVar = $var;
+			$testObj->setmMasuPointR($oldVar);$allCnt++;
+			$var = $testObj->getmMasuPointR();
+			if($var == $oldVar){								echo " - [OK] setmMasuPointR() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] setmMasuPointR() FAIRUR ". $var. "\n";
+			// *** TEST CASE 58 *** //
+			$var = $testObj->getmMasuPointCntR();$allCnt++;
+			if($var == 8){										echo " - [OK] getmMasuPointCntR() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] getmMasuPointCntR() FAIRUR ". $var. "\n";
+			// *** TEST CASE 59 *** //
+			$testObj->setmMasuPointCntR($testVar);$allCnt++;
+			$var = $testObj->getmMasuPointCntR();
+			if($var == $testVar){								echo " - [OK] setmMasuPointCntR() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] setmMasuPointCntR() FAIRUR ". $var. "\n";
+			// *** TEST CASE 60 *** //
+			$var = $testObj->getmMasuBetCntR();$allCnt++;
+			if($var == 4){										echo " - [OK] getmMasuBetCntR() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] getmMasuBetCntR() FAIRUR ". $var. "\n";
+			// *** TEST CASE 61 *** //
+			$testObj->setmMasuBetCntR($testVar);$allCnt++;
+			$var = $testObj->getmMasuBetCntR();
+			if($var == $testVar){								echo " - [OK] setmMasuBetCntR() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] setmMasuBetCntR() FAIRUR ". $var. "\n";
+			// *** TEST CASE 62 *** //
 			$var = $testObj->getmMasuCnt();$allCnt++;
 			if($var == ReversiConst::$DEF_MASU_CNT_MAX_VAL){	echo " - [OK] getmMasuCnt() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getmMasuCnt() FAILUR ". $var. "\n";
-			// *** TEST CASE 35 *** //
+			// *** TEST CASE 63 *** //
 			$testObj->setmMasuCnt($testVar);$allCnt++;
 			$var = $testObj->getmMasuCnt();
 			if($var == $testVar){								echo " - [OK] setmMasuCnt() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] setmMasuCnt() FAILUR ". $var. "\n";
-			// *** TEST CASE 36 *** //
+			// *** TEST CASE 64 *** //
 			$var = $testObj->getmMasuCntMax();$allCnt++;
 			if($var == ReversiConst::$DEF_MASU_CNT_MAX_VAL){	echo " - [OK] getmMasuCntMax() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getmMasuCntMax() FAILUR ". $var. "\n";
-			// *** TEST CASE 37 *** //
+			// *** TEST CASE 65 *** //
 			$testObj->setmMasuCntMax($testVar);$allCnt++;
 			$var = $testObj->getmMasuCntMax();
 			if($var == $testVar){								echo " - [OK] setmMasuCntMax() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] setmMasuCntMax() FAILUR ". $var. "\n";
-			// *** TEST CASE 38 *** //
+			// *** TEST CASE 66 *** //
 			$var = $testObj->getmMasuHistCur();$allCnt++;
 			if($var == 0){										echo " - [OK] getmMasuHistCur() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getmMasuHistCur() FAILUR ". $var. "\n";
-			// *** TEST CASE 39 *** //
+			// *** TEST CASE 67 *** //
 			$testObj->setmMasuHistCur($testVar);$allCnt++;
 			$var = $testObj->getmMasuHistCur();
 			if($var == $testVar){								echo " - [OK] setmMasuHistCur() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] setmMasuHistCur() FAILUR ". $var. "\n";
-			// *** TEST CASE 40 *** //
+			// *** TEST CASE 68 *** //
 			$var = $testObj->getmMasuHist();$allCnt++;
 			if($var != NULL){									echo " - [OK] getmMasuHist() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getmMasuHist() FAILUR ". $var. "\n";
-			// *** TEST CASE 41 *** //
+			// *** TEST CASE 69 *** //
 			$oldVar = $var;
 			$testObj->setmMasuHist($oldVar);$allCnt++;
 			$var = $testObj->getmMasuHist();
@@ -267,7 +403,7 @@ class TestReversi
 			else												echo " - [Error] setmMasuHist() FAILUR ". $var. "\n";
 
 			// *** Method TEST *** //
-			// *** TEST CASE 42 *** //
+			// *** TEST CASE 70 *** //
 			$testObj = new Reversi(ReversiConst::$DEF_MASU_CNT_MAX_VAL,ReversiConst::$DEF_MASU_CNT_MAX_VAL);
 			$testObj->reset();$allCnt++;
 			$execCnt = 0;
@@ -309,14 +445,14 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] reset() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] reset() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 43 *** //
+			// *** TEST CASE 72 *** //
 			$testObj->AnalysisReversi(1,1);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
 			if($execCnt == $cmpCnt){							echo " - [OK] AnalysisReversi() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] AnalysisReversi() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 44 *** //
+			// *** TEST CASE 73 *** //
 			$var = $testObj->getMasuSts(9,9);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -325,7 +461,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] getMasuSts() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getMasuSts() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 45 *** //
+			// *** TEST CASE 74 *** //
 			$var = $testObj->getMasuStsOld(9,9);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -334,7 +470,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] getMasuStsOld() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getMasuStsOld() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 46 *** //
+			// *** TEST CASE 75 *** //
 			$var = $testObj->getMasuStsEna(ReversiConst::$REVERSI_STS_WHITE,9,9);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -343,7 +479,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] getMasuStsEna() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getMasuStsEna() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 47 *** //
+			// *** TEST CASE 76 *** //
 			$var = $testObj->getMasuStsCnt(ReversiConst::$REVERSI_STS_WHITE,9,9);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -352,7 +488,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] getMasuStsCnt() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getMasuStsCnt() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 48 *** //
+			// *** TEST CASE 77 *** //
 			$var = $testObj->getColorEna(ReversiConst::$REVERSI_STS_WHITE);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -361,7 +497,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] getColorEna() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getColorEna() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 49 *** //
+			// *** TEST CASE 78 *** //
 			$var = $testObj->getGameEndSts();$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -370,7 +506,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] getGameEndSts() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getGameEndSts() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 50 *** //
+			// *** TEST CASE 79 *** //
 			$var = $testObj->setMasuSts(ReversiConst::$REVERSI_STS_WHITE,0,0);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -379,7 +515,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] setMasuSts() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] setMasuSts() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 51 *** //
+			// *** TEST CASE 80 *** //
 			$var = $testObj->setMasuStsForcibly(ReversiConst::$REVERSI_STS_WHITE,0,0);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -388,7 +524,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] setMasuStsForcibly() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] setMasuStsForcibly() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 52 *** //
+			// *** TEST CASE 81 *** //
 			$var = $testObj->setMasuCnt(ReversiConst::$DEF_MASU_CNT_18_VAL);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -397,7 +533,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] setMasuCnt() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] setMasuCnt() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 53 *** //
+			// *** TEST CASE 82 *** //
 			$var = $testObj->getPoint(ReversiConst::$REVERSI_STS_WHITE,0);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -406,7 +542,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] getPoint() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getPoint() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 54 *** //
+			// *** TEST CASE 83 *** //
 			$var = $testObj->getPointCnt(ReversiConst::$REVERSI_STS_WHITE);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -415,7 +551,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] getPointCnt() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getPointCnt() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 55 *** //
+			// *** TEST CASE 84 *** //
 			$var = $testObj->getBetCnt(ReversiConst::$REVERSI_STS_WHITE);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -424,7 +560,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] getBetCnt() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getBetCnt() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 56 *** //
+			// *** TEST CASE 85 *** //
 			$var = $testObj->getPassEna(ReversiConst::$REVERSI_STS_WHITE,9,9);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -433,7 +569,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] getPassEna() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getPassEna() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 57 *** //
+			// *** TEST CASE 86 *** //
 			$var = $testObj->getHistory(0);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -442,7 +578,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] getHistory() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getHistory() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 58 *** //
+			// *** TEST CASE 87 *** //
 			$var = $testObj->getHistoryCnt();$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -451,7 +587,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] getHistoryCnt() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getHistoryCnt() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 59 *** //
+			// *** TEST CASE 88 *** //
 			$var = $testObj->getPointAnz(ReversiConst::$REVERSI_STS_WHITE,9,9);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -460,7 +596,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] getPointAnz() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getPointAnz() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 60 *** //
+			// *** TEST CASE 89 *** //
 			$var = $testObj->checkEdge(ReversiConst::$REVERSI_STS_WHITE,0,1);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -469,7 +605,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] checkEdge() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] checkEdge() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 61 *** //
+			// *** TEST CASE 90 *** //
 			$var = $testObj->getEdgeSideZero(0,0);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -478,7 +614,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] getEdgeSideZero() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getEdgeSideZero() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 62 *** //
+			// *** TEST CASE 91 *** //
 			$var = $testObj->getEdgeSideOne(0,1);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -487,7 +623,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] getEdgeSideOne() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getEdgeSideOne() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 63 *** //
+			// *** TEST CASE 92 *** //
 			$var = $testObj->getEdgeSideTwo(0,2);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -496,7 +632,7 @@ class TestReversi
 			if($execCnt == $cmpCnt){							echo " - [OK] getEdgeSideTwo() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getEdgeSideTwo() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 64 *** //
+			// *** TEST CASE 93 *** //
 			$var = $testObj->getEdgeSideThree(0,3);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;

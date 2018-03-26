@@ -34,6 +34,8 @@ class ReversiConst
 
 	public static $DEF_COLOR_BLACK = 0;											//!< コマ色 黒
 	public static $DEF_COLOR_WHITE = 1;											//!< コマ色 白
+	public static $DEF_COLOR_BLUE = 2;											//!< コマ色 青
+	public static $DEF_COLOR_RED = 3;											//!< コマ色 赤
 
 	public static $DEF_ASSIST_OFF = 0;											//!< アシスト OFF
 	public static $DEF_ASSIST_ON = 1;											//!< アシスト ON
@@ -75,8 +77,10 @@ class ReversiConst
 	public static $REVERSI_STS_NONE = 0;										//!< コマ無し
 	public static $REVERSI_STS_BLACK = 1;										//!< 黒
 	public static $REVERSI_STS_WHITE = 2;										//!< 白
+	public static $REVERSI_STS_BLUE = 3;										//!< 青
+	public static $REVERSI_STS_RED = 4;											//!< 赤
 	public static $REVERSI_STS_MIN = 0;											//!< ステータス最小値
-	public static $REVERSI_STS_MAX = 2;											//!< ステータス最大値
+	public static $REVERSI_STS_MAX = 4;											//!< ステータス最大値
 	public static $REVERSI_MASU_CNT = 8;										//!< 縦横マス数
 
 	public static $LC_MSG_DRAW = 0;												//!< マス描画

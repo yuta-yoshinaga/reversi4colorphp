@@ -46,6 +46,20 @@ class Reversi
 	private $_mMasuPointW;											//!< 白の置ける場所座標一覧
 	private $_mMasuPointCntW;										//!< 白の置ける場所座標一覧数
 	private $_mMasuBetCntW;											//!< 白コマ数
+	private $_mMasuStsEnaL;											//!< 青の置ける場所
+	private $_mMasuStsCntL;											//!< 青の獲得コマ数
+	private $_mMasuStsPassL;										//!< 青が相手をパスさせる場所
+	private $_mMasuStsAnzL;											//!< 青がその場所に置いた場合の解析結果
+	private $_mMasuPointL;											//!< 青の置ける場所座標一覧
+	private $_mMasuPointCntL;										//!< 青の置ける場所座標一覧数
+	private $_mMasuBetCntL;											//!< 青コマ数
+	private $_mMasuStsEnaR;											//!< 赤の置ける場所
+	private $_mMasuStsCntR;											//!< 赤の獲得コマ数
+	private $_mMasuStsPassR;										//!< 赤が相手をパスさせる場所
+	private $_mMasuStsAnzR;											//!< 赤がその場所に置いた場合の解析結果
+	private $_mMasuPointR;											//!< 赤の置ける場所座標一覧
+	private $_mMasuPointCntR;										//!< 赤の置ける場所座標一覧数
+	private $_mMasuBetCntR;											//!< 赤コマ数
 	private $_mMasuCnt;												//!< 縦横マス数
 	private $_mMasuCntMax;											//!< 縦横マス最大数
 	private $_mMasuHistCur;											//!< 履歴現在位置
@@ -101,6 +115,48 @@ class Reversi
 	public function getmMasuBetCntW(){ return $this->_mMasuBetCntW; }
 	public function setmMasuBetCntW($_mMasuBetCntW){ $this->_mMasuBetCntW = $_mMasuBetCntW; }
 
+	public function getmMasuStsEnaL(){ return $this->_mMasuStsEnaL; }
+	public function setmMasuStsEnaL($_mMasuStsEnaL){ $this->_mMasuStsEnaL = $_mMasuStsEnaL; }
+
+	public function getmMasuStsCntL(){ return $this->_mMasuStsCntL; }
+	public function setmMasuStsCntL($_mMasuStsCntL){ $this->_mMasuStsCntL = $_mMasuStsCntL; }
+
+	public function getmMasuStsPassL(){ return $this->_mMasuStsPassL; }
+	public function setmMasuStsPassL($_mMasuStsPassL){ $this->_mMasuStsPassL = $_mMasuStsPassL; }
+
+	public function getmMasuStsAnzL(){ return $this->_mMasuStsAnzL; }
+	public function setmMasuStsAnzL($_mMasuStsAnzL){ $this->_mMasuStsAnzL = $_mMasuStsAnzL; }
+
+	public function getmMasuPointL(){ return $this->_mMasuPointL; }
+	public function setmMasuPointL($_mMasuPointL){ $this->_mMasuPointL = $_mMasuPointL; }
+
+	public function getmMasuPointCntL(){ return $this->_mMasuPointCntL; }
+	public function setmMasuPointCntL($_mMasuPointCntL){ $this->_mMasuPointCntL = $_mMasuPointCntL; }
+
+	public function getmMasuBetCntL(){ return $this->_mMasuBetCntL; }
+	public function setmMasuBetCntL($_mMasuBetCntL){ $this->_mMasuBetCntL = $_mMasuBetCntL; }
+
+	public function getmMasuStsEnaR(){ return $this->_mMasuStsEnaR; }
+	public function setmMasuStsEnaR($_mMasuStsEnaR){ $this->_mMasuStsEnaR = $_mMasuStsEnaR; }
+
+	public function getmMasuStsCntR(){ return $this->_mMasuStsCntR; }
+	public function setmMasuStsCntR($_mMasuStsCntR){ $this->_mMasuStsCntR = $_mMasuStsCntR; }
+
+	public function getmMasuStsPassR(){ return $this->_mMasuStsPassR; }
+	public function setmMasuStsPassR($_mMasuStsPassR){ $this->_mMasuStsPassR = $_mMasuStsPassR; }
+
+	public function getmMasuStsAnzR(){ return $this->_mMasuStsAnzR; }
+	public function setmMasuStsAnzR($_mMasuStsAnzR){ $this->_mMasuStsAnzR = $_mMasuStsAnzR; }
+
+	public function getmMasuPointR(){ return $this->_mMasuPointR; }
+	public function setmMasuPointR($_mMasuPointR){ $this->_mMasuPointR = $_mMasuPointR; }
+
+	public function getmMasuPointCntR(){ return $this->_mMasuPointCntR; }
+	public function setmMasuPointCntR($_mMasuPointCntR){ $this->_mMasuPointCntR = $_mMasuPointCntR; }
+
+	public function getmMasuBetCntR(){ return $this->_mMasuBetCntR; }
+	public function setmMasuBetCntR($_mMasuBetCntR){ $this->_mMasuBetCntR = $_mMasuBetCntR; }
+
 	public function getmMasuCnt(){ return $this->_mMasuCnt; }
 	public function setmMasuCnt($_mMasuCnt){ $this->_mMasuCnt = $_mMasuCnt; }
 
@@ -142,6 +198,16 @@ class Reversi
 		$this->_mMasuStsPassW	= array();
 		$this->_mMasuStsAnzW	= array();
 
+		$this->_mMasuStsEnaL	= array();
+		$this->_mMasuStsCntL	= array();
+		$this->_mMasuStsPassL	= array();
+		$this->_mMasuStsAnzL	= array();
+
+		$this->_mMasuStsEnaR	= array();
+		$this->_mMasuStsCntR	= array();
+		$this->_mMasuStsPassR	= array();
+		$this->_mMasuStsAnzR	= array();
+
 		for ($i = 0; $i < $this->_mMasuCntMax; $i++) {
 			$this->_mMasuSts[$i]			= array();
 
@@ -154,6 +220,16 @@ class Reversi
 			$this->_mMasuStsCntW[$i]		= array();
 			$this->_mMasuStsPassW[$i]		= array();
 			$this->_mMasuStsAnzW[$i]		= array();
+
+			$this->_mMasuStsEnaL[$i]		= array();
+			$this->_mMasuStsCntL[$i]		= array();
+			$this->_mMasuStsPassL[$i]		= array();
+			$this->_mMasuStsAnzL[$i]		= array();
+
+			$this->_mMasuStsEnaR[$i]		= array();
+			$this->_mMasuStsCntR[$i]		= array();
+			$this->_mMasuStsPassR[$i]		= array();
+			$this->_mMasuStsAnzR[$i]		= array();
 			for ($j = 0; $j < $this->_mMasuCntMax; $j++) {
 				$this->_mMasuSts[$i][$j]			= ReversiConst::$REVERSI_STS_NONE;
 
@@ -166,19 +242,37 @@ class Reversi
 				$this->_mMasuStsCntW[$i][$j]		= ReversiConst::$REVERSI_STS_NONE;
 				$this->_mMasuStsPassW[$i][$j]		= ReversiConst::$REVERSI_STS_NONE;
 				$this->_mMasuStsAnzW[$i][$j]		= new ReversiAnz();
+
+				$this->_mMasuStsEnaL[$i][$j]		= ReversiConst::$REVERSI_STS_NONE;
+				$this->_mMasuStsCntL[$i][$j]		= ReversiConst::$REVERSI_STS_NONE;
+				$this->_mMasuStsPassL[$i][$j]		= ReversiConst::$REVERSI_STS_NONE;
+				$this->_mMasuStsAnzL[$i][$j]		= new ReversiAnz();
+
+				$this->_mMasuStsEnaR[$i][$j]		= ReversiConst::$REVERSI_STS_NONE;
+				$this->_mMasuStsCntR[$i][$j]		= ReversiConst::$REVERSI_STS_NONE;
+				$this->_mMasuStsPassR[$i][$j]		= ReversiConst::$REVERSI_STS_NONE;
+				$this->_mMasuStsAnzR[$i][$j]		= new ReversiAnz();
 			}
 		}
 		$this->_mMasuPointB = array();
 		$this->_mMasuPointW = array();
+		$this->_mMasuPointL = array();
+		$this->_mMasuPointR = array();
 		for ($i = 0; $i < ($this->_mMasuCntMax * $this->_mMasuCntMax); $i++) {
 			$this->_mMasuPointB[$i] = new ReversiPoint();
 			$this->_mMasuPointW[$i] = new ReversiPoint();
+			$this->_mMasuPointL[$i] = new ReversiPoint();
+			$this->_mMasuPointR[$i] = new ReversiPoint();
 		}
 		$this->_mMasuPointCntB = 0;
 		$this->_mMasuPointCntW = 0;
+		$this->_mMasuPointCntL = 0;
+		$this->_mMasuPointCntR = 0;
 
 		$this->_mMasuBetCntB = 0;
 		$this->_mMasuBetCntW = 0;
+		$this->_mMasuBetCntL = 0;
+		$this->_mMasuBetCntR = 0;
 
 		$this->_mMasuHist = array();
 		for ($i = 0; $i < ($this->_mMasuCntMax * $this->_mMasuCntMax); $i++) {
@@ -218,14 +312,36 @@ class Reversi
 				$this->_mMasuStsAnzB[$i][$j]->reset();
 				$this->_mMasuStsPassW[$i][$j]	= 0;
 				$this->_mMasuStsAnzW[$i][$j]->reset();
+				$this->_mMasuStsPassL[$i][$j]	= 0;
+				$this->_mMasuStsAnzL[$i][$j]->reset();
+				$this->_mMasuStsPassR[$i][$j]	= 0;
+				$this->_mMasuStsAnzR[$i][$j]->reset();
 			}
 		}
-		$this->_mMasuSts[($this->_mMasuCnt >> 1) - 1][($this->_mMasuCnt >> 1) - 1]	= ReversiConst::$REVERSI_STS_BLACK;
-		$this->_mMasuSts[($this->_mMasuCnt >> 1) - 1][($this->_mMasuCnt >> 1)]		= ReversiConst::$REVERSI_STS_WHITE;
-		$this->_mMasuSts[($this->_mMasuCnt >> 1)][($this->_mMasuCnt >> 1) - 1]		= ReversiConst::$REVERSI_STS_WHITE;
-		$this->_mMasuSts[($this->_mMasuCnt >> 1)][($this->_mMasuCnt >> 1)]			= ReversiConst::$REVERSI_STS_BLACK;
+		$this->_mMasuSts[($this->_mMasuCnt >> 2)][($this->_mMasuCnt >> 2)]															= ReversiConst::$REVERSI_STS_BLACK;
+		$this->_mMasuSts[($this->_mMasuCnt >> 2) + 1][($this->_mMasuCnt >> 2) + 1]													= ReversiConst::$REVERSI_STS_BLACK;
+		$this->_mMasuSts[($this->_mMasuCnt - (($this->_mMasuCnt >> 2) + 2))][($this->_mMasuCnt >> 2)]								= ReversiConst::$REVERSI_STS_BLACK;
+		$this->_mMasuSts[($this->_mMasuCnt - (($this->_mMasuCnt >> 2) + 1))][($this->_mMasuCnt >> 2) + 1]							= ReversiConst::$REVERSI_STS_BLACK;
+
+		$this->_mMasuSts[($this->_mMasuCnt >> 2)][($this->_mMasuCnt >> 2) + 1]														= ReversiConst::$REVERSI_STS_WHITE;
+		$this->_mMasuSts[($this->_mMasuCnt >> 2) + 1][($this->_mMasuCnt >> 2)]														= ReversiConst::$REVERSI_STS_WHITE;
+		$this->_mMasuSts[($this->_mMasuCnt - (($this->_mMasuCnt >> 2) + 2))][($this->_mMasuCnt - (($this->_mMasuCnt >> 2) + 2))]	= ReversiConst::$REVERSI_STS_WHITE;
+		$this->_mMasuSts[($this->_mMasuCnt - (($this->_mMasuCnt >> 2) + 1))][($this->_mMasuCnt - (($this->_mMasuCnt >> 2) + 1))]	= ReversiConst::$REVERSI_STS_WHITE;
+
+		$this->_mMasuSts[($this->_mMasuCnt >> 2)][($this->_mMasuCnt - (($this->_mMasuCnt >> 2) + 1))]								= ReversiConst::$REVERSI_STS_BLUE;
+		$this->_mMasuSts[($this->_mMasuCnt >> 2) + 1][($this->_mMasuCnt - (($this->_mMasuCnt >> 2) + 2))]							= ReversiConst::$REVERSI_STS_BLUE;
+		$this->_mMasuSts[($this->_mMasuCnt - (($this->_mMasuCnt >> 2) + 2))][($this->_mMasuCnt >> 2) + 1]							= ReversiConst::$REVERSI_STS_BLUE;
+		$this->_mMasuSts[($this->_mMasuCnt - (($this->_mMasuCnt >> 2) + 1))][($this->_mMasuCnt >> 2)]								= ReversiConst::$REVERSI_STS_BLUE;
+
+		$this->_mMasuSts[($this->_mMasuCnt >> 2)][($this->_mMasuCnt - (($this->_mMasuCnt >> 2) + 2))]								= ReversiConst::$REVERSI_STS_RED;
+		$this->_mMasuSts[($this->_mMasuCnt >> 2) + 1][($this->_mMasuCnt - (($this->_mMasuCnt >> 2) + 1))]							= ReversiConst::$REVERSI_STS_RED;
+		$this->_mMasuSts[($this->_mMasuCnt - (($this->_mMasuCnt >> 2) + 2))][($this->_mMasuCnt - (($this->_mMasuCnt >> 2) + 1))]	= ReversiConst::$REVERSI_STS_RED;
+		$this->_mMasuSts[($this->_mMasuCnt - (($this->_mMasuCnt >> 2) + 1))][($this->_mMasuCnt - (($this->_mMasuCnt >> 2) + 2))]	= ReversiConst::$REVERSI_STS_RED;
+
 		$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLACK);
 		$this->makeMasuSts(ReversiConst::$REVERSI_STS_WHITE);
+		$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLUE);
+		$this->makeMasuSts(ReversiConst::$REVERSI_STS_RED);
 		$this->_mMasuHistCur = 0;
 		$this->_mMasuStsOld = $this->_mMasuSts;
 	}
@@ -255,9 +371,15 @@ class Reversi
 				if ($color == ReversiConst::$REVERSI_STS_BLACK) {
 					$this->_mMasuStsEnaB[$i][$j] = 0;
 					$this->_mMasuStsCntB[$i][$j] = 0;
-				} else {
+				} else if ($color == ReversiConst::$REVERSI_STS_WHITE) {
 					$this->_mMasuStsEnaW[$i][$j] = 0;
 					$this->_mMasuStsCntW[$i][$j] = 0;
+				} else if ($color == ReversiConst::$REVERSI_STS_BLUE) {
+					$this->_mMasuStsEnaL[$i][$j] = 0;
+					$this->_mMasuStsCntL[$i][$j] = 0;
+				} else {
+					$this->_mMasuStsEnaR[$i][$j] = 0;
+					$this->_mMasuStsCntR[$i][$j] = 0;
 				}
 			}
 		}
@@ -267,18 +389,30 @@ class Reversi
 			if ($color == ReversiConst::$REVERSI_STS_BLACK) {
 				$this->_mMasuPointB[$i]->setx(0);
 				$this->_mMasuPointB[$i]->sety(0);
-			} else {
+			} else if ($color == ReversiConst::$REVERSI_STS_WHITE) {
 				$this->_mMasuPointW[$i]->setx(0);
 				$this->_mMasuPointW[$i]->sety(0);
+			} else if ($color == ReversiConst::$REVERSI_STS_BLUE) {
+				$this->_mMasuPointL[$i]->setx(0);
+				$this->_mMasuPointL[$i]->sety(0);
+			} else {
+				$this->_mMasuPointR[$i]->setx(0);
+				$this->_mMasuPointR[$i]->sety(0);
 			}
 		}
 		if ($color == ReversiConst::$REVERSI_STS_BLACK) {
 			$this->_mMasuPointCntB = 0;
-		} else {
+		} else if ($color == ReversiConst::$REVERSI_STS_WHITE) {
 			$this->_mMasuPointCntW = 0;
+		} else if ($color == ReversiConst::$REVERSI_STS_BLUE) {
+			$this->_mMasuPointCntL = 0;
+		} else {
+			$this->_mMasuPointCntR = 0;
 		}
 		$this->_mMasuBetCntB = 0;
 		$this->_mMasuBetCntW = 0;
+		$this->_mMasuBetCntL = 0;
+		$this->_mMasuBetCntR = 0;
 
 		for ($i = 0; $i < $this->_mMasuCnt; $i++) {
 			for ($j = 0; $j < $this->_mMasuCnt; $j++) {
@@ -397,13 +531,27 @@ class Reversi
 							$this->_mMasuPointB[$this->_mMasuPointCntB]->sety($i);
 							$this->_mMasuPointB[$this->_mMasuPointCntB]->setx($j);
 							$this->_mMasuPointCntB++;
-						} else {
+						} else if ($color == ReversiConst::$REVERSI_STS_WHITE) {
 							$this->_mMasuStsEnaW[$i][$j] = 1;
 							$this->_mMasuStsCntW[$i][$j] = $count2;
 							// *** 置ける場所をリニアに保存、置けるポイント数も保存 *** //
 							$this->_mMasuPointW[$this->_mMasuPointCntW]->sety($i);
 							$this->_mMasuPointW[$this->_mMasuPointCntW]->setx($j);
 							$this->_mMasuPointCntW++;
+						} else if ($color == ReversiConst::$REVERSI_STS_BLUE) {
+							$this->_mMasuStsEnaL[$i][$j] = 1;
+							$this->_mMasuStsCntL[$i][$j] = $count2;
+							// *** 置ける場所をリニアに保存、置けるポイント数も保存 *** //
+							$this->_mMasuPointL[$this->_mMasuPointCntL]->sety($i);
+							$this->_mMasuPointL[$this->_mMasuPointCntL]->setx($j);
+							$this->_mMasuPointCntL++;
+						} else {
+							$this->_mMasuStsEnaR[$i][$j] = 1;
+							$this->_mMasuStsCntR[$i][$j] = $count2;
+							// *** 置ける場所をリニアに保存、置けるポイント数も保存 *** //
+							$this->_mMasuPointR[$this->_mMasuPointCntR]->sety($i);
+							$this->_mMasuPointR[$this->_mMasuPointCntR]->setx($j);
+							$this->_mMasuPointCntR++;
 						}
 						$ret = 0;
 						if ($countMax < $count2) $countMax = $count2;
@@ -412,6 +560,10 @@ class Reversi
 					$this->_mMasuBetCntB++;
 				} else if ($this->_mMasuSts[$i][$j] == ReversiConst::$REVERSI_STS_WHITE) {
 					$this->_mMasuBetCntW++;
+				} else if ($this->_mMasuSts[$i][$j] == ReversiConst::$REVERSI_STS_BLUE) {
+					$this->_mMasuBetCntL++;
+				} else if ($this->_mMasuSts[$i][$j] == ReversiConst::$REVERSI_STS_RED) {
+					$this->_mMasuBetCntR++;
 				}
 			}
 		}
@@ -423,9 +575,17 @@ class Reversi
 					if ($this->_mMasuStsEnaB[$i][$j] != 0 && $this->_mMasuStsCntB[$i][$j] == $countMax) {
 						$this->_mMasuStsEnaB[$i][$j] = 2;
 					}
-				} else {
+				} else if ($color == ReversiConst::$REVERSI_STS_WHITE) {
 					if ($this->_mMasuStsEnaW[$i][$j] != 0 && $this->_mMasuStsCntW[$i][$j] == $countMax) {
 						$this->_mMasuStsEnaW[$i][$j] = 2;
+					}
+				} else if ($color == ReversiConst::$REVERSI_STS_BLUE) {
+					if ($this->_mMasuStsEnaL[$i][$j] != 0 && $this->_mMasuStsCntL[$i][$j] == $countMax) {
+						$this->_mMasuStsEnaL[$i][$j] = 2;
+					}
+				} else {
+					if ($this->_mMasuStsEnaR[$i][$j] != 0 && $this->_mMasuStsCntR[$i][$j] == $countMax) {
+						$this->_mMasuStsEnaR[$i][$j] = 2;
 					}
 				}
 			}
@@ -779,6 +939,8 @@ class Reversi
 			$this->_mMasuSts = $tmpMasu;
 			$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLACK);
 			$this->makeMasuSts(ReversiConst::$REVERSI_STS_WHITE);
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLUE);
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_RED);
 		}
 	}
 
@@ -934,6 +1096,322 @@ class Reversi
 			$this->_mMasuSts = $tmpMasu;
 			$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLACK);
 			$this->makeMasuSts(ReversiConst::$REVERSI_STS_WHITE);
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLUE);
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_RED);
+		}
+	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	///	@brief			解析を行う(青)
+	///	@fn				AnalysisReversiBlue()
+	///	@return			ありません
+	///	@author			Yuta Yoshinaga
+	///	@date			2018.03.02
+	///
+	////////////////////////////////////////////////////////////////////////////////
+	private function AnalysisReversiBlue()
+	{
+		$tmpX;
+		$tmpY;
+		$sum;
+		$sumOwn;
+		$tmpGoodPoint;
+		$tmpBadPoint;
+		$tmpD1;
+		$tmpD2;
+		for ($cnt = 0; $cnt < $this->_mMasuPointCntW; $cnt++) {
+			// *** 現在ステータスを一旦コピー *** //
+			$tmpMasu = array();
+			$tmpMasuEnaB = array();
+			$tmpMasuEnaW = array();
+			$tmpMasu = $this->_mMasuSts;
+			$tmpMasuEnaB = $this->_mMasuStsEnaB;
+			$tmpMasuEnaW = $this->_mMasuStsEnaW;
+
+			$tmpY = $this->_mMasuPointW[$cnt]->gety();
+			$tmpX = $this->_mMasuPointW[$cnt]->getx();
+			$this->_mMasuSts[$tmpY][$tmpX] = ReversiConst::$REVERSI_STS_WHITE;			// 仮に置く
+			$this->revMasuSts(ReversiConst::$REVERSI_STS_WHITE, $tmpY, $tmpX);			// 仮にひっくり返す
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLACK);
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_WHITE);
+			// *** このマスに置いた場合の解析を行う *** //
+			if ($this->getColorEna(ReversiConst::$REVERSI_STS_BLACK) != 0) {			// 相手がパス
+				$this->_mMasuStsPassW[$tmpY][$tmpX] = 1;
+			}
+			if ($this->getEdgeSideZero($tmpY, $tmpX) == 0) {							// 置いた場所が角
+				$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeCnt();
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeCnt($tmp++);
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getGoodPoint() + (10000 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
+			} else if ($this->getEdgeSideOne($tmpY, $tmpX) == 0) {						// 置いた場所が角の一つ手前
+				$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideOneCnt();
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideOneCnt($tmp++);
+				if ($this->checkEdge(ReversiConst::$REVERSI_STS_WHITE, $tmpY, $tmpX) != 0) {	// 角を取られない
+					$this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getGoodPoint() + (10 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
+				} else {																// 角を取られる
+					$this->_mMasuStsAnzW[$tmpY][$tmpX]->setBadPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getBadPoint() + 100000);
+				}
+			} else if ($this->getEdgeSideTwo($tmpY, $tmpX) == 0) {						// 置いた場所が角の二つ手前
+				$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideTwoCnt();
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideTwoCnt($tmp++);
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getGoodPoint() + (1000 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
+			} else if ($this->getEdgeSideThree($tmpY, $tmpX) == 0) {					// 置いた場所が角の三つ手前
+				$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideThreeCnt();
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideThreeCnt($tmp++);
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getgoodPoint() + (100 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
+			} else {																	// 置いた場所がその他
+				$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideOtherCnt();
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideOtherCnt($tmp++);
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getGoodPoint() + (10 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
+			}
+			$sum = 0;
+			$sumOwn = 0;
+			for ($i = 0; $i < $this->_mMasuCnt; $i++) {
+				for ($j = 0; $j < $this->_mMasuCnt; $j++) {
+					$tmpBadPoint = 0;
+					$tmpGoodPoint = 0;
+					if ($this->getMasuStsEna(ReversiConst::$REVERSI_STS_BLACK, $i, $j) != 0) {
+						$sum += $this->_mMasuStsCntB[$i][$j];							// 相手の獲得予定枚数
+						// *** 相手の獲得予定の最大数保持 *** //
+						if ($this->_mMasuStsAnzW[$tmpY][$tmpX]->getMax() < $this->_mMasuStsCntB[$i][$j]) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setMax($this->_mMasuStsCntB[$i][$j]);
+						// *** 相手の獲得予定の最小数保持 *** //
+						if ($this->_mMasuStsCntB[$i][$j] < $this->_mMasuStsAnzW[$tmpY][$tmpX]->getMin()) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setMin($this->_mMasuStsCntB[$i][$j]);
+						$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getPointCnt();
+						$this->_mMasuStsAnzW[$tmpY][$tmpX]->setPointCnt($tmp++);		// 相手の置ける場所の数
+						if ($this->getEdgeSideZero($i, $j) == 0) {						// 置く場所が角
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getEdgeCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setEdgeCnt($tmp++);
+							$tmpBadPoint = 100000 * $this->_mMasuStsCntB[$i][$j];
+						} else if ($this->getEdgeSideOne($i, $j) == 0) {				// 置く場所が角の一つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getEdgeSideOneCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setEdgeSideOneCnt($tmp++);
+							$tmpBadPoint = 0;
+						} else if ($this->getEdgeSideTwo($i, $j) == 0) {				// 置く場所が角の二つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getEdgeSideTwoCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setEdgeSideTwoCnt($tmp++);
+							$tmpBadPoint = 1 * $this->_mMasuStsCntB[$i][$j];
+						} else if ($this->getEdgeSideThree($i, $j) == 0) {				// 置く場所が角の三つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getEdgeSideThreeCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setEdgeSideThreeCnt($tmp++);
+							$tmpBadPoint = 1 * $this->_mMasuStsCntB[$i][$j];
+						} else {														// 置く場所がその他
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getEdgeSideOtherCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setEdgeSideOtherCnt($tmp++);
+							$tmpBadPoint = 1 * $this->_mMasuStsCntB[$i][$j];
+						}
+						if ($tmpMasuEnaB[$i][$j] != 0) $tmpBadPoint = 0;				// ステータス変化していないなら
+					}
+					if ($this->getMasuStsEna(ReversiConst::$REVERSI_STS_WHITE, $i, $j) != 0) {
+						$sumOwn += $this->_mMasuStsCntW[$i][$j];						// 自分の獲得予定枚数
+						// *** 自分の獲得予定の最大数保持 *** //
+						if ($this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnMax() < $this->_mMasuStsCntW[$i][$j]) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnMax($this->_mMasuStsCntW[$i][$j]);
+						// *** 自分の獲得予定の最小数保持 *** //
+						if ($this->_mMasuStsCntW[$i][$j] < $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnMin()) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnMin($this->_mMasuStsCntW[$i][$j]);
+						$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getownPointCnt();
+						$this->_mMasuStsAnzW[$tmpY][$tmpX]->setownPointCnt($tmp++);		// 自分の置ける場所の数
+						if ($this->getEdgeSideZero($i, $j) == 0) {						// 置く場所が角
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeCnt($tmp++);
+							$tmpGoodPoint = 100 * $this->_mMasuStsCntW[$i][$j];
+						} else if ($this->getEdgeSideOne($i, $j) == 0) {				// 置く場所が角の一つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideOneCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideOneCnt($tmp++);
+							$tmpGoodPoint = 0;
+						} else if ($this->getEdgeSideTwo($i, $j) == 0) {				// 置く場所が角の二つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideTwoCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideTwoCnt($tmp++);
+							$tmpGoodPoint = 3 * $this->_mMasuStsCntW[$i][$j];
+						} else if ($this->getEdgeSideThree($i, $j) == 0) {				// 置く場所が角の三つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideThreeCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideThreeCnt($tmp++);
+							$tmpGoodPoint = 2 * $this->_mMasuStsCntW[$i][$j];
+						} else {														// 置く場所がその他
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideOtherCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideOtherCnt($tmp++);
+							$tmpGoodPoint = 1 * $this->_mMasuStsCntW[$i][$j];
+						}
+						if ($tmpMasuEnaW[$i][$j] != 0) $tmpGoodPoint = 0;				// ステータス変化していないなら
+					}
+					if ($tmpBadPoint != 0) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setBadPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getBadPoint() + $tmpBadPoint);
+					if ($tmpGoodPoint != 0) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getGoodPoint() + $tmpGoodPoint);
+				}
+			}
+			// *** 相手に取られる平均コマ数 *** //
+			if ($this->getPointCnt(ReversiConst::$REVERSI_STS_BLACK) != 0) {
+				$tmpD1 = $sum;
+				$tmpD2 = $this->getPointCnt(ReversiConst::$REVERSI_STS_BLACK);
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->getAvg($tmpD1 / $tmpD2);
+			}
+
+			// *** 自分が取れる平均コマ数 *** //
+			if ($this->getPointCnt(ReversiConst::$REVERSI_STS_WHITE) != 0) {
+				$tmpD1 = $sumOwn;
+				$tmpD2 = $this->getPointCnt(ReversiConst::$REVERSI_STS_WHITE);
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnAvg($tmpD1 / $tmpD2);
+			}
+
+			// *** 元に戻す *** //
+			$this->_mMasuSts = $tmpMasu;
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLACK);
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_WHITE);
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLUE);
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_RED);
+		}
+	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	///	@brief			解析を行う(赤)
+	///	@fn				AnalysisReversiRed()
+	///	@return			ありません
+	///	@author			Yuta Yoshinaga
+	///	@date			2018.03.02
+	///
+	////////////////////////////////////////////////////////////////////////////////
+	private function AnalysisReversiRed()
+	{
+		$tmpX;
+		$tmpY;
+		$sum;
+		$sumOwn;
+		$tmpGoodPoint;
+		$tmpBadPoint;
+		$tmpD1;
+		$tmpD2;
+		for ($cnt = 0; $cnt < $this->_mMasuPointCntW; $cnt++) {
+			// *** 現在ステータスを一旦コピー *** //
+			$tmpMasu = array();
+			$tmpMasuEnaB = array();
+			$tmpMasuEnaW = array();
+			$tmpMasu = $this->_mMasuSts;
+			$tmpMasuEnaB = $this->_mMasuStsEnaB;
+			$tmpMasuEnaW = $this->_mMasuStsEnaW;
+
+			$tmpY = $this->_mMasuPointW[$cnt]->gety();
+			$tmpX = $this->_mMasuPointW[$cnt]->getx();
+			$this->_mMasuSts[$tmpY][$tmpX] = ReversiConst::$REVERSI_STS_WHITE;			// 仮に置く
+			$this->revMasuSts(ReversiConst::$REVERSI_STS_WHITE, $tmpY, $tmpX);			// 仮にひっくり返す
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLACK);
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_WHITE);
+			// *** このマスに置いた場合の解析を行う *** //
+			if ($this->getColorEna(ReversiConst::$REVERSI_STS_BLACK) != 0) {			// 相手がパス
+				$this->_mMasuStsPassW[$tmpY][$tmpX] = 1;
+			}
+			if ($this->getEdgeSideZero($tmpY, $tmpX) == 0) {							// 置いた場所が角
+				$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeCnt();
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeCnt($tmp++);
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getGoodPoint() + (10000 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
+			} else if ($this->getEdgeSideOne($tmpY, $tmpX) == 0) {						// 置いた場所が角の一つ手前
+				$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideOneCnt();
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideOneCnt($tmp++);
+				if ($this->checkEdge(ReversiConst::$REVERSI_STS_WHITE, $tmpY, $tmpX) != 0) {	// 角を取られない
+					$this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getGoodPoint() + (10 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
+				} else {																// 角を取られる
+					$this->_mMasuStsAnzW[$tmpY][$tmpX]->setBadPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getBadPoint() + 100000);
+				}
+			} else if ($this->getEdgeSideTwo($tmpY, $tmpX) == 0) {						// 置いた場所が角の二つ手前
+				$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideTwoCnt();
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideTwoCnt($tmp++);
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getGoodPoint() + (1000 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
+			} else if ($this->getEdgeSideThree($tmpY, $tmpX) == 0) {					// 置いた場所が角の三つ手前
+				$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideThreeCnt();
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideThreeCnt($tmp++);
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getgoodPoint() + (100 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
+			} else {																	// 置いた場所がその他
+				$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideOtherCnt();
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideOtherCnt($tmp++);
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getGoodPoint() + (10 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
+			}
+			$sum = 0;
+			$sumOwn = 0;
+			for ($i = 0; $i < $this->_mMasuCnt; $i++) {
+				for ($j = 0; $j < $this->_mMasuCnt; $j++) {
+					$tmpBadPoint = 0;
+					$tmpGoodPoint = 0;
+					if ($this->getMasuStsEna(ReversiConst::$REVERSI_STS_BLACK, $i, $j) != 0) {
+						$sum += $this->_mMasuStsCntB[$i][$j];							// 相手の獲得予定枚数
+						// *** 相手の獲得予定の最大数保持 *** //
+						if ($this->_mMasuStsAnzW[$tmpY][$tmpX]->getMax() < $this->_mMasuStsCntB[$i][$j]) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setMax($this->_mMasuStsCntB[$i][$j]);
+						// *** 相手の獲得予定の最小数保持 *** //
+						if ($this->_mMasuStsCntB[$i][$j] < $this->_mMasuStsAnzW[$tmpY][$tmpX]->getMin()) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setMin($this->_mMasuStsCntB[$i][$j]);
+						$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getPointCnt();
+						$this->_mMasuStsAnzW[$tmpY][$tmpX]->setPointCnt($tmp++);		// 相手の置ける場所の数
+						if ($this->getEdgeSideZero($i, $j) == 0) {						// 置く場所が角
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getEdgeCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setEdgeCnt($tmp++);
+							$tmpBadPoint = 100000 * $this->_mMasuStsCntB[$i][$j];
+						} else if ($this->getEdgeSideOne($i, $j) == 0) {				// 置く場所が角の一つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getEdgeSideOneCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setEdgeSideOneCnt($tmp++);
+							$tmpBadPoint = 0;
+						} else if ($this->getEdgeSideTwo($i, $j) == 0) {				// 置く場所が角の二つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getEdgeSideTwoCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setEdgeSideTwoCnt($tmp++);
+							$tmpBadPoint = 1 * $this->_mMasuStsCntB[$i][$j];
+						} else if ($this->getEdgeSideThree($i, $j) == 0) {				// 置く場所が角の三つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getEdgeSideThreeCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setEdgeSideThreeCnt($tmp++);
+							$tmpBadPoint = 1 * $this->_mMasuStsCntB[$i][$j];
+						} else {														// 置く場所がその他
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getEdgeSideOtherCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setEdgeSideOtherCnt($tmp++);
+							$tmpBadPoint = 1 * $this->_mMasuStsCntB[$i][$j];
+						}
+						if ($tmpMasuEnaB[$i][$j] != 0) $tmpBadPoint = 0;				// ステータス変化していないなら
+					}
+					if ($this->getMasuStsEna(ReversiConst::$REVERSI_STS_WHITE, $i, $j) != 0) {
+						$sumOwn += $this->_mMasuStsCntW[$i][$j];						// 自分の獲得予定枚数
+						// *** 自分の獲得予定の最大数保持 *** //
+						if ($this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnMax() < $this->_mMasuStsCntW[$i][$j]) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnMax($this->_mMasuStsCntW[$i][$j]);
+						// *** 自分の獲得予定の最小数保持 *** //
+						if ($this->_mMasuStsCntW[$i][$j] < $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnMin()) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnMin($this->_mMasuStsCntW[$i][$j]);
+						$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getownPointCnt();
+						$this->_mMasuStsAnzW[$tmpY][$tmpX]->setownPointCnt($tmp++);		// 自分の置ける場所の数
+						if ($this->getEdgeSideZero($i, $j) == 0) {						// 置く場所が角
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeCnt($tmp++);
+							$tmpGoodPoint = 100 * $this->_mMasuStsCntW[$i][$j];
+						} else if ($this->getEdgeSideOne($i, $j) == 0) {				// 置く場所が角の一つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideOneCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideOneCnt($tmp++);
+							$tmpGoodPoint = 0;
+						} else if ($this->getEdgeSideTwo($i, $j) == 0) {				// 置く場所が角の二つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideTwoCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideTwoCnt($tmp++);
+							$tmpGoodPoint = 3 * $this->_mMasuStsCntW[$i][$j];
+						} else if ($this->getEdgeSideThree($i, $j) == 0) {				// 置く場所が角の三つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideThreeCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideThreeCnt($tmp++);
+							$tmpGoodPoint = 2 * $this->_mMasuStsCntW[$i][$j];
+						} else {														// 置く場所がその他
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideOtherCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideOtherCnt($tmp++);
+							$tmpGoodPoint = 1 * $this->_mMasuStsCntW[$i][$j];
+						}
+						if ($tmpMasuEnaW[$i][$j] != 0) $tmpGoodPoint = 0;				// ステータス変化していないなら
+					}
+					if ($tmpBadPoint != 0) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setBadPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getBadPoint() + $tmpBadPoint);
+					if ($tmpGoodPoint != 0) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getGoodPoint() + $tmpGoodPoint);
+				}
+			}
+			// *** 相手に取られる平均コマ数 *** //
+			if ($this->getPointCnt(ReversiConst::$REVERSI_STS_BLACK) != 0) {
+				$tmpD1 = $sum;
+				$tmpD2 = $this->getPointCnt(ReversiConst::$REVERSI_STS_BLACK);
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->getAvg($tmpD1 / $tmpD2);
+			}
+
+			// *** 自分が取れる平均コマ数 *** //
+			if ($this->getPointCnt(ReversiConst::$REVERSI_STS_WHITE) != 0) {
+				$tmpD1 = $sumOwn;
+				$tmpD2 = $this->getPointCnt(ReversiConst::$REVERSI_STS_WHITE);
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnAvg($tmpD1 / $tmpD2);
+			}
+
+			// *** 元に戻す *** //
+			$this->_mMasuSts = $tmpMasu;
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLACK);
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_WHITE);
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLUE);
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_RED);
 		}
 	}
 
@@ -956,13 +1434,21 @@ class Reversi
 				$this->_mMasuStsAnzB[$i][$j]->reset();
 				$this->_mMasuStsPassW[$i][$j] = 0;
 				$this->_mMasuStsAnzW[$i][$j]->reset();
+				$this->_mMasuStsPassL[$i][$j] = 0;
+				$this->_mMasuStsAnzL[$i][$j]->reset();
+				$this->_mMasuStsPassR[$i][$j] = 0;
+				$this->_mMasuStsAnzR[$i][$j]->reset();
 			}
 		}
 		$this->AnalysisReversiBlack();								// 黒解析
 		$this->AnalysisReversiWhite();								// 白解析
+		$this->AnalysisReversiBlue();								// 青解析
+		$this->AnalysisReversiRed();								// 赤解析
 
 		$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLACK);
 		$this->makeMasuSts(ReversiConst::$REVERSI_STS_WHITE);
+		$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLUE);
+		$this->makeMasuSts(ReversiConst::$REVERSI_STS_RED);
 
 		// *** パスマスを取得 *** //
 		for ($i = 0; $i < $this->_mMasuCnt; $i++) {
@@ -972,6 +1458,12 @@ class Reversi
 				}
 				if ($this->_mMasuStsPassW[$i][$j] != 0) {
 					if ($wPassEna != 0) $this->_mMasuStsEnaW[$i][$j] = 3;
+				}
+				if ($this->_mMasuStsPassL[$i][$j] != 0) {
+					if ($wPassEna != 0) $this->_mMasuStsEnaL[$i][$j] = 3;
+				}
+				if ($this->_mMasuStsPassR[$i][$j] != 0) {
+					if ($wPassEna != 0) $this->_mMasuStsEnaR[$i][$j] = 3;
 				}
 			}
 		}
@@ -1027,7 +1519,9 @@ class Reversi
 		$ret = 0;
 		if ($this->checkPara($y, 0, $this->_mMasuCnt) == 0 && $this->checkPara($x, 0, $this->_mMasuCnt) == 0) {
 			if ($color == ReversiConst::$REVERSI_STS_BLACK) $ret = $this->_mMasuStsEnaB[$y][$x];
-			else $ret = $this->_mMasuStsEnaW[$y][$x];
+			else if ($color == ReversiConst::$REVERSI_STS_WHITE) $ret = $this->_mMasuStsEnaW[$y][$x];
+			else if ($color == ReversiConst::$REVERSI_STS_BLUE) $ret = $this->_mMasuStsEnaL[$y][$x];
+			else $ret = $this->_mMasuStsEnaR[$y][$x];
 		}
 		return $ret;
 	}
@@ -1048,7 +1542,9 @@ class Reversi
 		$ret = -1;
 		if ($this->checkPara($y, 0, $this->_mMasuCnt) == 0 && $this->checkPara($x, 0, $this->_mMasuCnt) == 0) {
 			if ($color == ReversiConst::$REVERSI_STS_BLACK) $ret = $this->_mMasuStsCntB[$y][$x];
-			else $ret = $this->_mMasuStsCntW[$y][$x];
+			else if ($color == ReversiConst::$REVERSI_STS_WHITE) $ret = $this->_mMasuStsCntW[$y][$x];
+			else if ($color == ReversiConst::$REVERSI_STS_BLUE) $ret = $this->_mMasuStsCntL[$y][$x];
+			else $ret = $this->_mMasuStsCntR[$y][$x];
 		}
 		return $ret;
 	}
@@ -1089,6 +1585,8 @@ class Reversi
 		$ret = 1;
 		if ($this->getColorEna(ReversiConst::$REVERSI_STS_BLACK) == 0) $ret = 0;
 		if ($this->getColorEna(ReversiConst::$REVERSI_STS_WHITE) == 0) $ret = 0;
+		if ($this->getColorEna(ReversiConst::$REVERSI_STS_BLUE) == 0) $ret = 0;
+		if ($this->getColorEna(ReversiConst::$REVERSI_STS_RED) == 0) $ret = 0;
 		return $ret;
 	}
 
@@ -1113,6 +1611,8 @@ class Reversi
 			$this->revMasuSts($color, $y, $x);
 			$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLACK);
 			$this->makeMasuSts(ReversiConst::$REVERSI_STS_WHITE);
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLUE);
+			$this->makeMasuSts(ReversiConst::$REVERSI_STS_RED);
 			// *** 履歴保存 *** //
 			if ($this->_mMasuHistCur < ($this->_mMasuCntMax * $this->_mMasuCntMax)) {
 				$this->_mMasuHist[$this->_mMasuHistCur]->setColor($color);
@@ -1182,7 +1682,9 @@ class Reversi
 		$ret = NULL;
 		if ($this->checkPara($num, 0, ($this->_mMasuCnt * $this->_mMasuCnt)) == 0) {
 			if ($color == ReversiConst::$REVERSI_STS_BLACK) $ret = $this->_mMasuPointB[$num];
-			else $ret = $this->_mMasuPointW[$num];
+			else if ($color == ReversiConst::$REVERSI_STS_WHITE) $ret = $this->_mMasuPointW[$num];
+			else if ($color == ReversiConst::$REVERSI_STS_BLUE) $ret = $this->_mMasuPointL[$num];
+			else $ret = $this->_mMasuPointR[$num];
 		}
 		return $ret;
 	}
@@ -1200,7 +1702,9 @@ class Reversi
 	{
 		$ret = 0;
 		if ($color == ReversiConst::$REVERSI_STS_BLACK) $ret = $this->_mMasuPointCntB;
-		else $ret = $this->_mMasuPointCntW;
+		else if ($color == ReversiConst::$REVERSI_STS_WHITE) $ret = $this->_mMasuPointCntW;
+		else if ($color == ReversiConst::$REVERSI_STS_BLUE) $ret = $this->_mMasuPointCntL;
+		else $ret = $this->_mMasuPointCntR;
 		return $ret;
 	}
 
@@ -1217,7 +1721,9 @@ class Reversi
 	{
 		$ret = 0;
 		if ($color == ReversiConst::$REVERSI_STS_BLACK) $ret = $this->_mMasuBetCntB;
-		else $ret = $this->_mMasuBetCntW;
+		else if ($color == ReversiConst::$REVERSI_STS_WHITE) $ret = $this->_mMasuBetCntW;
+		else if ($color == ReversiConst::$REVERSI_STS_BLUE) $ret = $this->_mMasuBetCntL;
+		else $ret = $this->_mMasuBetCntR;
 		return $ret;
 	}
 
@@ -1240,7 +1746,9 @@ class Reversi
 		$ret = 0;
 		if ($this->checkPara($y, 0, $this->_mMasuCnt) == 0 && $this->checkPara($x, 0, $this->_mMasuCnt) == 0) {
 			if ($color == ReversiConst::$REVERSI_STS_BLACK) $ret = $this->_mMasuStsPassB[$y][$x];
-			else $ret = $this->_mMasuStsPassW[$y][$x];
+			else if ($color == ReversiConst::$REVERSI_STS_WHITE) $ret = $this->_mMasuStsPassW[$y][$x];
+			else if ($color == ReversiConst::$REVERSI_STS_BLUE) $ret = $this->_mMasuStsPassL[$y][$x];
+			else $ret = $this->_mMasuStsPassR[$y][$x];
 		}
 		return $ret;
 	}
@@ -1294,7 +1802,9 @@ class Reversi
 		$ret = NULL;
 		if ($this->checkPara($y, 0, $this->_mMasuCnt) == 0 && $this->checkPara($x, 0, $this->_mMasuCnt) == 0) {
 			if ($color == ReversiConst::$REVERSI_STS_BLACK) $ret = $this->_mMasuStsAnzB[$y][$x];
-			else $ret = $this->_mMasuStsAnzW[$y][$x];
+			else if ($color == ReversiConst::$REVERSI_STS_WHITE) $ret = $this->_mMasuStsAnzW[$y][$x];
+			else if ($color == ReversiConst::$REVERSI_STS_BLUE) $ret = $this->_mMasuStsAnzL[$y][$x];
+			else $ret = $this->_mMasuStsAnzR[$y][$x];
 		}
 		return $ret;
 	}
