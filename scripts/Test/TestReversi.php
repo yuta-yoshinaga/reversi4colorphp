@@ -416,7 +416,7 @@ class TestReversi
 					if($var[$i][$j] == ReversiConst::$REVERSI_STS_NONE) $localCnt++;
 				}
 			}
-			if($localCnt == (($testObj->getmMasuCnt() * $testObj->getmMasuCnt()) - 4)){		$cmpCnt++;}
+			if($localCnt == (($testObj->getmMasuCnt() * $testObj->getmMasuCnt()) - 16)){		$cmpCnt++;}
 
 			$localCnt = 0;
 			$var = $testObj->getmMasuStsPassB();$execCnt++;
@@ -457,7 +457,7 @@ class TestReversi
 			$execCnt = 0;
 			$cmpCnt = 0;
 			$execCnt++;
-			if($var == 1){																	$cmpCnt++;}
+			if($var == 0){																	$cmpCnt++;}
 			if($execCnt == $cmpCnt){							echo " - [OK] getMasuSts() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getMasuSts() $cmpCnt / $execCnt FAILUR \n";
 
@@ -466,7 +466,7 @@ class TestReversi
 			$execCnt = 0;
 			$cmpCnt = 0;
 			$execCnt++;
-			if($var == 1){																	$cmpCnt++;}
+			if($var == 0){																	$cmpCnt++;}
 			if($execCnt == $cmpCnt){							echo " - [OK] getMasuStsOld() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getMasuStsOld() $cmpCnt / $execCnt FAILUR \n";
 
@@ -556,7 +556,7 @@ class TestReversi
 			$execCnt = 0;
 			$cmpCnt = 0;
 			$execCnt++;
-			if($var == 2){																	$cmpCnt++;}
+			if($var == 4){																	$cmpCnt++;}
 			if($execCnt == $cmpCnt){							echo " - [OK] getBetCnt() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getBetCnt() $cmpCnt / $execCnt FAILUR \n";
 

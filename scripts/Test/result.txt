@@ -158,24 +158,14 @@
  - [OK] setmMasuPointCntL() SUCCESS
  - [OK] getmMasuBetCntL() SUCCESS
  - [OK] setmMasuBetCntL() SUCCESS
-
-Notice: Use of undefined constant NURR - assumed 'NURR' in C:\work\Bitbucket\reversi4colorphp\scripts\Test\TestReversi.php on line 301
  - [OK] getmMasuStsEnaR() SUCCESS
  - [OK] setmMasuStsEnaR() SUCCESS
-
-Notice: Use of undefined constant NURR - assumed 'NURR' in C:\work\Bitbucket\reversi4colorphp\scripts\Test\TestReversi.php on line 311
  - [OK] getmMasuStsCntR() SUCCESS
  - [OK] setmMasuStsCntR() SUCCESS
-
-Notice: Use of undefined constant NURR - assumed 'NURR' in C:\work\Bitbucket\reversi4colorphp\scripts\Test\TestReversi.php on line 321
  - [OK] getmMasuStsPassR() SUCCESS
  - [OK] setmMasuStsPassR() SUCCESS
-
-Notice: Use of undefined constant NURR - assumed 'NURR' in C:\work\Bitbucket\reversi4colorphp\scripts\Test\TestReversi.php on line 331
  - [OK] getmMasuStsAnzR() SUCCESS
  - [OK] setmMasuStsAnzR() SUCCESS
-
-Notice: Use of undefined constant NURR - assumed 'NURR' in C:\work\Bitbucket\reversi4colorphp\scripts\Test\TestReversi.php on line 341
  - [OK] getmMasuPointR() SUCCESS
  - [OK] setmMasuPointR() SUCCESS
  - [OK] getmMasuPointCntR() SUCCESS
@@ -190,10 +180,10 @@ Notice: Use of undefined constant NURR - assumed 'NURR' in C:\work\Bitbucket\rev
  - [OK] setmMasuHistCur() SUCCESS
  - [OK] getmMasuHist() SUCCESS
  - [OK] setmMasuHist() SUCCESS
- - [Error] reset() 4 / 5 FAILUR 
+ - [OK] reset() SUCCESS
  - [OK] AnalysisReversi() SUCCESS
- - [Error] getMasuSts() 0 / 1 FAILUR 
- - [Error] getMasuStsOld() 0 / 1 FAILUR 
+ - [OK] getMasuSts() SUCCESS
+ - [OK] getMasuStsOld() SUCCESS
  - [OK] getMasuStsEna() SUCCESS
  - [OK] getMasuStsCnt() SUCCESS
  - [OK] getColorEna() SUCCESS
@@ -203,7 +193,7 @@ Notice: Use of undefined constant NURR - assumed 'NURR' in C:\work\Bitbucket\rev
  - [OK] setMasuCnt() SUCCESS
  - [OK] getPoint() SUCCESS
  - [OK] getPointCnt() SUCCESS
- - [Error] getBetCnt() 0 / 1 FAILUR 
+ - [OK] getBetCnt() SUCCESS
  - [OK] getPassEna() SUCCESS
  - [OK] getHistory() SUCCESS
  - [OK] getHistoryCnt() SUCCESS
@@ -214,7 +204,7 @@ Notice: Use of undefined constant NURR - assumed 'NURR' in C:\work\Bitbucket\rev
  - [OK] getEdgeSideTwo() SUCCESS
  - [OK] getEdgeSideThree() SUCCESS
 **************************
-[TestReversi] End 88 / 92 FAILUR
+[TestReversi] End 92 / 92 SUCCESS
 
 [TestReversiPlay] Start
 **************************
@@ -1311,4 +1301,4 @@ DrawSingle : 0 0 1 0 0
 **************************
 [TestReversiPlay] End 36 / 36 SUCCESS
 
-execute [Test.php] 2018/03/26 20:02:27 successed! 処理時間 : 0.21509194374084 sec
+execute [Test.php] 2018/03/26 16:10:10 successed! 処理時間 : 0.59033012390137 sec
