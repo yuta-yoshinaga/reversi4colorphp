@@ -446,7 +446,7 @@ class TestReversi
 			else												echo " - [Error] reset() $cmpCnt / $execCnt FAILUR \n";
 
 			// *** TEST CASE 72 *** //
-			$testObj->AnalysisReversi(1,1);$allCnt++;
+			$testObj->AnalysisReversi(1,1,1,1);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
 			if($execCnt == $cmpCnt){							echo " - [OK] AnalysisReversi() SUCCESS\n";$curCnt++;}

@@ -36,6 +36,8 @@ class ReversiPlay
 	private $_mEdge;										//!< CPU用角マスワーク
 	private $_mPassEnaB;									//!< 黒のパス有効フラグ
 	private $_mPassEnaW;									//!< 白のパス有効フラグ
+	private $_mPassEnaL;									//!< 青のパス有効フラグ
+	private $_mPassEnaR;									//!< 赤のパス有効フラグ
 	private $_mGameEndSts;									//!< ゲーム終了ステータス
 	private $_mPlayLock;									//!< プレイロック
 	private $_viewMsgDlg;									//!< メッセージコールバック
@@ -66,6 +68,12 @@ class ReversiPlay
 
 	public function getmPassEnaW(){ return $this->_mPassEnaW; }
 	public function setmPassEnaW($_mPassEnaW){ $this->_mPassEnaW = $_mPassEnaW; }
+
+	public function getmPassEnaL(){ return $this->_mPassEnaL; }
+	public function setmPassEnaL($_mPassEnaL){ $this->_mPassEnaL = $_mPassEnaL; }
+
+	public function getmPassEnaR(){ return $this->_mPassEnaR; }
+	public function setmPassEnaR($_mPassEnaR){ $this->_mPassEnaR = $_mPassEnaR; }
 
 	public function getmGameEndSts(){ return $this->_mGameEndSts; }
 	public function setmGameEndSts($_mGameEndSts){ $this->_mGameEndSts = $_mGameEndSts; }
@@ -191,7 +199,7 @@ class ReversiPlay
 		$this->_mPlayLock = 1;
 		if ($this->_mReversi->getColorEna($this->_mCurColor) == 0) {
 			if ($this->_mReversi->setMasuSts($this->_mCurColor, $y, $x) == 0) {
-				if ($this->_mSetting->mType == ReversiConst::$DEF_TYPE_HARD) $this->_mReversi->AnalysisReversi($this->_mPassEnaB, $this->_mPassEnaW);
+				if ($this->_mSetting->mType == ReversiConst::$DEF_TYPE_HARD) $this->_mReversi->AnalysisReversi($this->_mPassEnaB, $this->_mPassEnaW, $this->_mPassEnaL, $this->_mPassEnaR);
 				if ($this->_mSetting->mAssist == ReversiConst::$DEF_ASSIST_ON) {
 					// *** メッセージ送信 *** //
 					$this->execMessage(ReversiConst::$LC_MSG_ERASE_INFO_ALL, NULL);
@@ -199,19 +207,21 @@ class ReversiPlay
 				$this->sendDrawMsg($y, $x);													// 描画
 				$this->drawUpdate(ReversiConst::$DEF_ASSIST_OFF);							// その他コマ描画
 				if ($this->_mReversi->getGameEndSts() == 0) {
-					if ($tmpCol == ReversiConst::$REVERSI_STS_BLACK) $tmpCol = ReversiConst::$REVERSI_STS_WHITE;
-					else $tmpCol = ReversiConst::$REVERSI_STS_BLACK;
-					if ($this->_mReversi->getColorEna($tmpCol) == 0) {
-						if ($this->_mSetting->getmMode() == ReversiConst::$DEF_MODE_ONE) {	// CPU対戦
-							$cpuEna = 1;
-						} else {															// 二人対戦
-							$this->_mCurColor = $tmpCol;
-							$this->drawUpdate($this->_mSetting->getmAssist());				// 次のプレイヤーコマ描画
+					for(;;){
+						$tmpCol = $this->getNextCol($tmpCol);
+						if($this->_mReversi->getColorEna($tmpCol) == 0){
+							if($this->_mSetting->getmMode() == ReversiConst::$DEF_MODE_ONE){// CPU対戦
+								if($tmpCol != $this->_mCurColor) $cpuEna = 1;
+							}else{															// 四人対戦
+								$this->_mCurColor = $tmpCol;
+								$this->drawUpdate($this->_mSetting->getmAssist());			// 次のプレイヤーコマ描画
+							}
+							break;
+						}else{
+							// *** パスメッセージ *** //
+							if($this->_mReversi->getBetCnt($tmpCol) != 0) $this->reversiPlayPass($tmpCol);
+							$pass = 1;
 						}
-					} else {
-						// *** パスメッセージ *** //
-						$this->reversiPlayPass($tmpCol);
-						$pass = 1;
 					}
 				} else {
 					// *** ゲーム終了メッセージ *** //
@@ -224,26 +234,28 @@ class ReversiPlay
 			}
 		} else {
 			if ($this->_mReversi->getGameEndSts() == 0) {
-				if ($tmpCol == ReversiConst::$REVERSI_STS_BLACK) $tmpCol = ReversiConst::$REVERSI_STS_WHITE;
-				else $tmpCol = ReversiConst::$REVERSI_STS_BLACK;
-				if ($this->_mReversi->getColorEna($tmpCol) == 0) {
-					if ($this->_mSetting->getmMode() == ReversiConst::$DEF_MODE_ONE) {		// CPU対戦
-						$update = 1;
-						$cpuEna = 1;
-					} else {																// 二人対戦
-						$this->_mCurColor = $tmpCol;
+				for(;;){
+					$tmpCol = $this->getNextCol($tmpCol);
+					if($this->_mReversi->getColorEna($tmpCol) == 0){
+						if($this->_mSetting->getmMode() == ReversiConst::$DEF_MODE_ONE){	// CPU対戦
+							if($tmpCol != $this->_mCurColor) $cpuEna = 1;
+						}else{																// 四人対戦
+							$this->_mCurColor = $tmpCol;
+							$this->drawUpdate($this->_mSetting->getmAssist());				// 次のプレイヤーコマ描画
+						}
+						break;
+					}else{
+						// *** パスメッセージ *** //
+						if($this->_mReversi->getBetCnt($tmpCol) != 0) $this->reversiPlayPass($tmpCol);
+						$pass = 1;
 					}
-				} else {
-					// *** パスメッセージ *** //
-					$this->reversiPlayPass($tmpCol);
-					$pass = 1;
 				}
 			} else {
 				// *** ゲーム終了メッセージ *** //
 				$this->reversiPlayEnd();
 			}
 		}
-		if ($pass == 1) {
+		if ($pass == 1 && cpuEna == 0) {
 			if ($this->_mSetting->getmMode() == ReversiConst::$DEF_MODE_ONE) {				// CPU対戦
 				if ($this->_mSetting->getmAssist() == ReversiConst::$DEF_ASSIST_ON) {
 					// *** メッセージ送信 *** //
@@ -282,10 +294,21 @@ class ReversiPlay
 			$cpuEna = 0;
 			if ($ret == 1) {
 				if ($this->_mReversi->getGameEndSts() == 0) {
-					if ($this->_mReversi->getColorEna($this->_mCurColor) != 0) {
-						// *** パスメッセージ *** //
-						$this->reversiPlayPass($this->_mCurColor);
-						$cpuEna = 1;
+					for(;;){
+						$tmpCol = $this->getNextCol($tmpCol);
+						if($this->_mReversi->getColorEna($tmpCol) != 0){
+							// *** パスメッセージ *** //
+							if($this->_mReversi->getBetCnt($tmpCol) != 0) $this->reversiPlayPass($tmpCol);
+						}else{
+							if($tmpCol == $this->_mCurColor){
+								if($this->_mSetting->getmAssist() == ReversiConst::$DEF_ASSIST_ON){
+									$this->execMessage(ReversiConst::$LC_MSG_DRAW_INFO_ALL, NULL);
+								}
+							}else{
+								$cpuEna = 1;
+							}
+							break;
+						}
 					}
 				} else {
 					// *** ゲーム終了メッセージ *** //
@@ -317,22 +340,41 @@ class ReversiPlay
 			$msgStr = "";
 			$blk = 0;
 			$whi = 0;
+			$blu = 0;
+			$red = 0;
 			$blk = $this->_mReversi->getBetCnt(ReversiConst::$REVERSI_STS_BLACK);
 			$whi = $this->_mReversi->getBetCnt(ReversiConst::$REVERSI_STS_WHITE);
-			$tmpMsg1 = "プレイヤー1 = " . $blk . " プレイヤー2 = " . $whi;
+			$blu = $this->_mReversi->getBetCnt(ReversiConst::$REVERSI_STS_BLUE);
+			$red = $this->_mReversi->getBetCnt(ReversiConst::$REVERSI_STS_RED);
+			$maxCol = $blk;
+			if($maxCol < $whi) $maxCol = $whi;
+			if($maxCol < $blu) $maxCol = $blu;
+			if($maxCol < $red) $maxCol = $red;
+			if($this->_mCurColor == ReversiConst::$REVERSI_STS_BLACK)			$playCol = $blk;
+			else if($this->_mCurColor == ReversiConst::$REVERSI_STS_WHITE)		$playCol = $whi;
+			else if($this->_mCurColor == ReversiConst::$REVERSI_STS_BLUE)		$playCol = $blu;
+			else																$playCol = $red;
+			$tmpMsg1 = "プレイヤー1 = " . $blk . " プレイヤー2 = " . $whi . " プレイヤー3 = " . $blu . " プレイヤー4 = " . $red;
 			if ($this->_mSetting->getmMode() == ReversiConst::$DEF_MODE_ONE) {
-				if ($whi == $blk) $tmpMsg2 = "引き分けです。";
-				else if ($whi < $blk) {
-					if ($this->_mCurColor == ReversiConst::$REVERSI_STS_BLACK) $tmpMsg2 = "あなたの勝ちです。";
-					else $tmpMsg2 = "あなたの負けです。";
+				if ($maxCol == $blk && $maxCol == $whi && $maxCol == $blu && $maxCol == $red){
+					$tmpMsg2 = "引き分けです。";
+				} else if ($maxCol == $playCol) {
+					$tmpMsg2 = "あなたの勝ちです。";
 				} else {
-					if ($this->_mCurColor == ReversiConst::$REVERSI_STS_WHITE) $tmpMsg2 = "あなたの勝ちです。";
-					else $tmpMsg2 = "あなたの負けです。";
+					$tmpMsg2 = "あなたの負けです。";
 				}
 			} else {
-				if ($whi == $blk) $tmpMsg2 = "引き分けです。";
-				else if ($whi < $blk) $tmpMsg2 = "プレイヤー1の勝ちです。";
-				else $tmpMsg2 = "プレイヤー2の勝ちです。";
+				if ($maxCol == $blk && $maxCol == $whi && $maxCol == $blu && $maxCol == $red){
+					$tmpMsg2 = "引き分けです。";
+				} else if($maxCol == $blk) {
+					$tmpMsg2 = "プレイヤー1の勝ちです。";
+				} else if($maxCol == $whi) {
+					$tmpMsg2 = "プレイヤー2の勝ちです。";
+				} else if($maxCol == $blu) {
+					$tmpMsg2 = "プレイヤー3の勝ちです。";
+				} else {
+					$tmpMsg2 = "プレイヤー4の勝ちです。";
+				}
 			}
 			$msgStr = $tmpMsg1 . $tmpMsg2;
 			$this->ViewMsgDlgLocal("ゲーム終了", $msgStr);
@@ -358,13 +400,13 @@ class ReversiPlay
 	public function reversiPlayPass($color)
 	{
 		// *** パスメッセージ *** //
-		if ($this->_mSetting->getmMode() == ReversiConst::$DEF_MODE_ONE) {
-			if ($color == $this->_mCurColor) $this->ViewMsgDlgLocal("", "あなたはパスです。");
-			else $this->ViewMsgDlgLocal("", "CPUはパスです。");
-		} else {
-			if ($color == ReversiConst::$REVERSI_STS_BLACK) $this->ViewMsgDlgLocal("", "プレイヤー1はパスです。");
-			else $this->ViewMsgDlgLocal("", "プレイヤー2はパスです。");
-		}
+//		if ($this->_mSetting->getmMode() == ReversiConst::$DEF_MODE_ONE) {
+//			if ($color == $this->_mCurColor) $this->ViewMsgDlgLocal("", "あなたはパスです。");
+//			else $this->ViewMsgDlgLocal("", "CPUはパスです。");
+//		} else {
+//			if ($color == ReversiConst::$REVERSI_STS_BLACK) $this->ViewMsgDlgLocal("", "プレイヤー1はパスです。");
+//			else $this->ViewMsgDlgLocal("", "プレイヤー2はパスです。");
+//		}
 	}
 
 	////////////////////////////////////////////////////////////////////////////////

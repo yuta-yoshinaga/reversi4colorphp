@@ -1417,15 +1417,17 @@ class Reversi
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			解析を行う
-	///	@fn				void AnalysisReversi($bPassEna, $wPassEna)
+	///	@fn				void AnalysisReversi($bPassEna, $wPassEna, $lPassEna, $rPassEna)
 	///	@param[in]		$bPassEna		1=黒パス有効
 	///	@param[in]		$wPassEna		1=白パス有効
+	///	@param[in]		$lPassEna		1=青パス有効
+	///	@param[in]		$rPassEna		1=赤パス有効
 	///	@return			ありません
 	///	@author			Yuta Yoshinaga
 	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public function AnalysisReversi($bPassEna, $wPassEna)
+	public function AnalysisReversi($bPassEna, $wPassEna, $lPassEna, $rPassEna)
 	{
 		// *** 相手をパスさせることができるマス検索 *** //
 		for ($i = 0; $i < $this->_mMasuCnt; $i++) {					// 初期化
@@ -1460,10 +1462,10 @@ class Reversi
 					if ($wPassEna != 0) $this->_mMasuStsEnaW[$i][$j] = 3;
 				}
 				if ($this->_mMasuStsPassL[$i][$j] != 0) {
-					if ($wPassEna != 0) $this->_mMasuStsEnaL[$i][$j] = 3;
+					if ($lPassEna != 0) $this->_mMasuStsEnaL[$i][$j] = 3;
 				}
 				if ($this->_mMasuStsPassR[$i][$j] != 0) {
-					if ($wPassEna != 0) $this->_mMasuStsEnaR[$i][$j] = 3;
+					if ($rPassEna != 0) $this->_mMasuStsEnaR[$i][$j] = 3;
 				}
 			}
 		}
