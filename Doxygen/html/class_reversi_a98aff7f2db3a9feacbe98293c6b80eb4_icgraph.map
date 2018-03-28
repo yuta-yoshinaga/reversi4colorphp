@@ -1,5 +1,7 @@
 <map id="getEdgeSideOne" name="getEdgeSideOne">
 <area shape="rect" id="node2" href="$class_reversi.html#a471972ec549188f7eb701d57e14ae7a1" title="解析を行う(黒) " alt="" coords="174,5,321,32"/>
-<area shape="rect" id="node4" href="$class_reversi.html#a3c30afb2509b0782b1c22a8770c68c48" title="解析を行う(白) " alt="" coords="173,56,321,83"/>
-<area shape="rect" id="node3" href="$class_reversi.html#ae15e49622562732d31d44a75a14c3b45" title="解析を行う " alt="" coords="369,31,484,57"/>
+<area shape="rect" id="node4" href="$class_reversi.html#a3b581c4861bda72706a1d7146c910ad2" title="解析を行う(青) " alt="" coords="177,56,317,83"/>
+<area shape="rect" id="node5" href="$class_reversi.html#ad44cfa7c45a98365df2d6db094d61901" title="解析を行う(赤) " alt="" coords="179,107,316,133"/>
+<area shape="rect" id="node6" href="$class_reversi.html#a3c30afb2509b0782b1c22a8770c68c48" title="解析を行う(白) " alt="" coords="173,157,321,184"/>
+<area shape="rect" id="node3" href="$class_reversi.html#a1e2f4c432c1e407c4dbec20f4ee1b3b7" title="解析を行う " alt="" coords="369,81,484,108"/>
 </map>

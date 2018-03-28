@@ -14,6 +14,7 @@ var searchData=
   ['getmasustscnt',['getMasuStsCnt',['../class_reversi.html#a10bfc13effc2db9a681a2906792be453',1,'Reversi']]],
   ['getmasustsena',['getMasuStsEna',['../class_reversi.html#a22088e18c7f837f49093595261c30e4e',1,'Reversi']]],
   ['getmasustsold',['getMasuStsOld',['../class_reversi.html#a1688a929d3917e19510f6501c42d6a2b',1,'Reversi']]],
+  ['getnextcol',['getNextCol',['../class_reversi_play.html#a26fd2d7723695b69cbfde7e16b55b096',1,'ReversiPlay']]],
   ['getpassena',['getPassEna',['../class_reversi.html#a123959981f8e1d48fc7b9d183a5c6d0a',1,'Reversi']]],
   ['getpoint',['getPoint',['../class_reversi.html#ad059cc09b0001edd980f43770380b863',1,'Reversi']]],
   ['getpointanz',['getPointAnz',['../class_reversi.html#af1a30d438a7d17f31353b9d4bfe9cb65',1,'Reversi']]],

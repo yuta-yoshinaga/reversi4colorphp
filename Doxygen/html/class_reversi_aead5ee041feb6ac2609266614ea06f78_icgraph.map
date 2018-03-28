@@ -1,6 +1,8 @@
 <map id="getColorEna" name="getColorEna">
 <area shape="rect" id="node2" href="$class_reversi.html#a471972ec549188f7eb701d57e14ae7a1" title="解析を行う(黒) " alt="" coords="147,5,294,32"/>
-<area shape="rect" id="node4" href="$class_reversi.html#a3c30afb2509b0782b1c22a8770c68c48" title="解析を行う(白) " alt="" coords="147,56,295,83"/>
-<area shape="rect" id="node5" href="$class_reversi.html#aab9985c789e464de6cf99d7d725cb5a3" title="ゲーム終了かチェック " alt="" coords="161,107,280,133"/>
-<area shape="rect" id="node3" href="$class_reversi.html#ae15e49622562732d31d44a75a14c3b45" title="解析を行う " alt="" coords="343,31,457,57"/>
+<area shape="rect" id="node4" href="$class_reversi.html#a3b581c4861bda72706a1d7146c910ad2" title="解析を行う(青) " alt="" coords="151,56,291,83"/>
+<area shape="rect" id="node5" href="$class_reversi.html#ad44cfa7c45a98365df2d6db094d61901" title="解析を行う(赤) " alt="" coords="152,107,289,133"/>
+<area shape="rect" id="node6" href="$class_reversi.html#a3c30afb2509b0782b1c22a8770c68c48" title="解析を行う(白) " alt="" coords="147,157,295,184"/>
+<area shape="rect" id="node7" href="$class_reversi.html#aab9985c789e464de6cf99d7d725cb5a3" title="ゲーム終了かチェック " alt="" coords="161,208,280,235"/>
+<area shape="rect" id="node3" href="$class_reversi.html#a1e2f4c432c1e407c4dbec20f4ee1b3b7" title="解析を行う " alt="" coords="343,81,457,108"/>
 </map>

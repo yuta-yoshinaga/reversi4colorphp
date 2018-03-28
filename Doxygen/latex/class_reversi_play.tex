@@ -60,6 +60,18 @@ Collaboration diagram for Reversi\+Play\+:
 \mbox{\Hypertarget{class_reversi_play_a198f8569bdaae8b5065a4ff5833e3dda}\label{class_reversi_play_a198f8569bdaae8b5065a4ff5833e3dda}} 
 {\bfseries setm\+Pass\+EnaW} (\$\+\_\+m\+Pass\+EnaW)
 \item 
+\mbox{\Hypertarget{class_reversi_play_a8c52b516d55ee5ad328b7c652818b05a}\label{class_reversi_play_a8c52b516d55ee5ad328b7c652818b05a}} 
+{\bfseries getm\+Pass\+EnaL} ()
+\item 
+\mbox{\Hypertarget{class_reversi_play_a8cf65e1b5ffed9da0890ff2c21362a7e}\label{class_reversi_play_a8cf65e1b5ffed9da0890ff2c21362a7e}} 
+{\bfseries setm\+Pass\+EnaL} (\$\+\_\+m\+Pass\+EnaL)
+\item 
+\mbox{\Hypertarget{class_reversi_play_a61b5d71d69e8e3641812c82ac98c9587}\label{class_reversi_play_a61b5d71d69e8e3641812c82ac98c9587}} 
+{\bfseries getm\+Pass\+EnaR} ()
+\item 
+\mbox{\Hypertarget{class_reversi_play_a8dbcf6f29086358b5b1563919bf54b96}\label{class_reversi_play_a8dbcf6f29086358b5b1563919bf54b96}} 
+{\bfseries setm\+Pass\+EnaR} (\$\+\_\+m\+Pass\+EnaR)
+\item 
 \mbox{\Hypertarget{class_reversi_play_a2350821625a7704d36197624bb75e27d}\label{class_reversi_play_a2350821625a7704d36197624bb75e27d}} 
 {\bfseries getm\+Game\+End\+Sts} ()
 \item 
@@ -124,6 +136,8 @@ Collaboration diagram for Reversi\+Play\+:
 \begin{DoxyCompactList}\small\item\em マス描画強制更新 \end{DoxyCompactList}\item 
 \hyperlink{class_reversi_play_a4a20559544fdf4dcb457e258dc976cf8}{reset} ()
 \begin{DoxyCompactList}\small\item\em リセット処理 \end{DoxyCompactList}\item 
+\hyperlink{class_reversi_play_a26fd2d7723695b69cbfde7e16b55b096}{get\+Next\+Col} (\$color)
+\begin{DoxyCompactList}\small\item\em 次の色取得 \end{DoxyCompactList}\item 
 \hyperlink{class_reversi_play_acbcd366da8242203ae52fb685fbc929e}{game\+End\+Anim\+Exec} ()
 \begin{DoxyCompactList}\small\item\em ゲーム終了アニメーション \end{DoxyCompactList}\item 
 \hyperlink{class_reversi_play_af27aaf13f15a080c006432338a06c481}{send\+Draw\+Msg} (\$y, \$x)
@@ -169,6 +183,12 @@ Collaboration diagram for Reversi\+Play\+:
 \mbox{\Hypertarget{class_reversi_play_a0d215f8204de373d60e09fb297710bdd}\label{class_reversi_play_a0d215f8204de373d60e09fb297710bdd}} 
 \hyperlink{class_reversi_play_a0d215f8204de373d60e09fb297710bdd}{\$\+\_\+m\+Pass\+EnaW}
 \begin{DoxyCompactList}\small\item\em 白のパス有効フラグ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_reversi_play_a854f681f2a05e9641cb8b7f4fc292432}\label{class_reversi_play_a854f681f2a05e9641cb8b7f4fc292432}} 
+\hyperlink{class_reversi_play_a854f681f2a05e9641cb8b7f4fc292432}{\$\+\_\+m\+Pass\+EnaL}
+\begin{DoxyCompactList}\small\item\em 青のパス有効フラグ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_reversi_play_a9a671d3821176d9c2e08cc71c8bcea54}\label{class_reversi_play_a9a671d3821176d9c2e08cc71c8bcea54}} 
+\hyperlink{class_reversi_play_a9a671d3821176d9c2e08cc71c8bcea54}{\$\+\_\+m\+Pass\+EnaR}
+\begin{DoxyCompactList}\small\item\em 赤のパス有効フラグ \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_reversi_play_aa34251d460f57d816a729f3cab2aa94f}\label{class_reversi_play_aa34251d460f57d816a729f3cab2aa94f}} 
 \hyperlink{class_reversi_play_aa34251d460f57d816a729f3cab2aa94f}{\$\+\_\+m\+Game\+End\+Sts}
 \begin{DoxyCompactList}\small\item\em ゲーム終了ステータス \end{DoxyCompactList}\item 
@@ -221,7 +241,7 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 100 of file Reversi\+Play.\+php.
+Definition at line 108 of file Reversi\+Play.\+php.
 
 \mbox{\Hypertarget{class_reversi_play_a421831a265621325e1fdd19aace0c758}\label{class_reversi_play_a421831a265621325e1fdd19aace0c758}} 
 \index{Reversi\+Play@{Reversi\+Play}!\+\_\+\+\_\+destruct@{\+\_\+\+\_\+destruct}}
@@ -244,7 +264,7 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 146 of file Reversi\+Play.\+php.
+Definition at line 154 of file Reversi\+Play.\+php.
 
 
 
@@ -270,7 +290,7 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 158 of file Reversi\+Play.\+php.
+Definition at line 166 of file Reversi\+Play.\+php.
 
 \mbox{\Hypertarget{class_reversi_play_aa217a221907e90c97719f8332c60a6d6}\label{class_reversi_play_aa217a221907e90c97719f8332c60a6d6}} 
 \index{Reversi\+Play@{Reversi\+Play}!Cur\+Col\+Msg\+Local@{Cur\+Col\+Msg\+Local}}
@@ -298,7 +318,7 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 981 of file Reversi\+Play.\+php.
+Definition at line 1108 of file Reversi\+Play.\+php.
 
 
 
@@ -338,7 +358,7 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 998 of file Reversi\+Play.\+php.
+Definition at line 1125 of file Reversi\+Play.\+php.
 
 
 
@@ -386,7 +406,7 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 964 of file Reversi\+Play.\+php.
+Definition at line 1091 of file Reversi\+Play.\+php.
 
 
 
@@ -426,7 +446,7 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 638 of file Reversi\+Play.\+php.
+Definition at line 702 of file Reversi\+Play.\+php.
 
 
 
@@ -474,7 +494,7 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 671 of file Reversi\+Play.\+php.
+Definition at line 735 of file Reversi\+Play.\+php.
 
 
 
@@ -524,11 +544,11 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 849 of file Reversi\+Play.\+php.
+Definition at line 972 of file Reversi\+Play.\+php.
 
 
 
-Referenced by draw\+Update(), draw\+Update\+Forcibly(), game\+End\+Anim\+Exec(), reset(), reversi\+Play(), reversi\+Play\+Cpu(), reversi\+Play\+End(), send\+Draw\+Info\+Msg(), and send\+Draw\+Msg().
+Referenced by draw\+Update(), draw\+Update\+Forcibly(), game\+End\+Anim\+Exec(), reset(), reversi\+Play(), reversi\+Play\+Cpu(), reversi\+Play\+End(), reversi\+Play\+Sub(), send\+Draw\+Info\+Msg(), and send\+Draw\+Msg().
 
 Here is the call graph for this function\+:
 \nopagebreak
@@ -567,7 +587,7 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 746 of file Reversi\+Play.\+php.
+Definition at line 845 of file Reversi\+Play.\+php.
 
 
 
@@ -587,6 +607,46 @@ Here is the caller graph for this function\+:
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_reversi_play_acbcd366da8242203ae52fb685fbc929e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_reversi_play_a26fd2d7723695b69cbfde7e16b55b096}\label{class_reversi_play_a26fd2d7723695b69cbfde7e16b55b096}} 
+\index{Reversi\+Play@{Reversi\+Play}!get\+Next\+Col@{get\+Next\+Col}}
+\index{get\+Next\+Col@{get\+Next\+Col}!Reversi\+Play@{Reversi\+Play}}
+\subsubsection{\texorpdfstring{get\+Next\+Col()}{getNextCol()}}
+{\footnotesize\ttfamily public function get\+Next\+Col (\begin{DoxyParamCaption}\item[{}]{\$color }\end{DoxyParamCaption})}
+
+
+
+次の色取得 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \$color} & 現在の色 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+次の色 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Yuta Yoshinaga 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018.\+03.\+02 
+\end{DoxyDate}
+
+
+Definition at line 825 of file Reversi\+Play.\+php.
+
+
+
+Referenced by reset(), reversi\+Play(), and reversi\+Play\+Sub().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_reversi_play_a26fd2d7723695b69cbfde7e16b55b096_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_reversi_play_a4a20559544fdf4dcb457e258dc976cf8}\label{class_reversi_play_a4a20559544fdf4dcb457e258dc976cf8}} 
@@ -610,7 +670,7 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 696 of file Reversi\+Play.\+php.
+Definition at line 760 of file Reversi\+Play.\+php.
 
 Here is the call graph for this function\+:
 \nopagebreak
@@ -648,7 +708,7 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 183 of file Reversi\+Play.\+php.
+Definition at line 191 of file Reversi\+Play.\+php.
 
 Here is the call graph for this function\+:
 \nopagebreak
@@ -686,7 +746,7 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 380 of file Reversi\+Play.\+php.
+Definition at line 422 of file Reversi\+Play.\+php.
 
 
 
@@ -729,7 +789,7 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 307 of file Reversi\+Play.\+php.
+Definition at line 330 of file Reversi\+Play.\+php.
 
 
 
@@ -777,20 +837,12 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 358 of file Reversi\+Play.\+php.
+Definition at line 400 of file Reversi\+Play.\+php.
 
 
 
 Referenced by reversi\+Play(), and reversi\+Play\+Sub().
 
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=296pt]{class_reversi_play_a67816fe65a87e35d8e8cc35d5d269bcb_cgraph}
-\end{center}
-\end{figure}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -827,7 +879,7 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 277 of file Reversi\+Play.\+php.
+Definition at line 289 of file Reversi\+Play.\+php.
 
 
 
@@ -874,7 +926,7 @@ Here is the caller graph for this function\+:
 \end{DoxyDate}
 
 
-Definition at line 830 of file Reversi\+Play.\+php.
+Definition at line 953 of file Reversi\+Play.\+php.
 
 
 
@@ -924,7 +976,7 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 812 of file Reversi\+Play.\+php.
+Definition at line 935 of file Reversi\+Play.\+php.
 
 
 
@@ -974,11 +1026,11 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 943 of file Reversi\+Play.\+php.
+Definition at line 1070 of file Reversi\+Play.\+php.
 
 
 
-Referenced by reversi\+Play(), reversi\+Play\+End(), and reversi\+Play\+Pass().
+Referenced by reversi\+Play(), and reversi\+Play\+End().
 
 Here is the caller graph for this function\+:
 \nopagebreak
@@ -1014,7 +1066,7 @@ Yuta Yoshinaga
 \end{DoxyDate}
 
 
-Definition at line 1015 of file Reversi\+Play.\+php.
+Definition at line 1142 of file Reversi\+Play.\+php.
 
 
 

@@ -1,6 +1,8 @@
 <map id="getMasuSts" name="getMasuSts">
-<area shape="rect" id="node2" href="$class_reversi.html#acd2c64ea43cc26407ad64920a183446b" title="角の隣に置いても角を取られないマス検索 " alt="" coords="145,31,232,57"/>
+<area shape="rect" id="node2" href="$class_reversi.html#acd2c64ea43cc26407ad64920a183446b" title="角の隣に置いても角を取られないマス検索 " alt="" coords="145,81,232,108"/>
 <area shape="rect" id="node3" href="$class_reversi.html#a471972ec549188f7eb701d57e14ae7a1" title="解析を行う(黒) " alt="" coords="281,5,427,32"/>
-<area shape="rect" id="node5" href="$class_reversi.html#a3c30afb2509b0782b1c22a8770c68c48" title="解析を行う(白) " alt="" coords="280,56,428,83"/>
-<area shape="rect" id="node4" href="$class_reversi.html#ae15e49622562732d31d44a75a14c3b45" title="解析を行う " alt="" coords="476,31,591,57"/>
+<area shape="rect" id="node5" href="$class_reversi.html#a3b581c4861bda72706a1d7146c910ad2" title="解析を行う(青) " alt="" coords="284,56,424,83"/>
+<area shape="rect" id="node6" href="$class_reversi.html#ad44cfa7c45a98365df2d6db094d61901" title="解析を行う(赤) " alt="" coords="285,107,423,133"/>
+<area shape="rect" id="node7" href="$class_reversi.html#a3c30afb2509b0782b1c22a8770c68c48" title="解析を行う(白) " alt="" coords="280,157,428,184"/>
+<area shape="rect" id="node4" href="$class_reversi.html#a1e2f4c432c1e407c4dbec20f4ee1b3b7" title="解析を行う " alt="" coords="476,81,591,108"/>
 </map>
