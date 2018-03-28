@@ -424,6 +424,7 @@ class ReversiPlay
 		$update = 0;
 		$setY;
 		$setX;
+		$othColor = array();
 
 		for (; ;) {
 			if ($cpuEna == 1) {
@@ -449,9 +450,30 @@ class ReversiPlay
 						$loop = $this->_mSetting->getmMasuCnt() * $this->_mSetting->getmMasuCnt();
 						$pCnt = 0;
 						$passCnt = 0;
-						if ($color == ReversiConst::$REVERSI_STS_BLACK) $othColor = ReversiConst::$REVERSI_STS_WHITE;
-						else $othColor = ReversiConst::$REVERSI_STS_BLACK;
-						$othBet = $this->_mReversi->getBetCnt($othColor);			// 対戦相手のコマ数
+						$othBet = 0;
+						$ownBet = 0;
+						$endZone = 0;
+						if($color == ReversiConst.REVERSI_STS_BLACK){
+							$othColor[0] = ReversiConst::$REVERSI_STS_WHITE;
+							$othColor[1] = ReversiConst::$REVERSI_STS_BLUE;
+							$othColor[2] = ReversiConst::$REVERSI_STS_RED;
+						}else if($color == ReversiConst::$REVERSI_STS_WHITE){
+							$othColor[0] = ReversiConst::$REVERSI_STS_BLACK;
+							$othColor[1] = ReversiConst::$REVERSI_STS_BLUE;
+							$othColor[2] = ReversiConst::$REVERSI_STS_RED;
+						}else if($color == ReversiConst::$REVERSI_STS_BLUE){
+							$othColor[0] = ReversiConst::$REVERSI_STS_BLACK;
+							$othColor[1] = ReversiConst::$REVERSI_STS_WHITE;
+							$othColor[2] = ReversiConst::$REVERSI_STS_RED;
+						}else{
+							$othColor[0] = ReversiConst::$REVERSI_STS_BLACK;
+							$othColor[1] = ReversiConst::$REVERSI_STS_WHITE;
+							$othColor[2] = ReversiConst::$REVERSI_STS_BLUE;
+						}
+						$othBet = 0;
+						for($i=0;$i<3;$i++){
+							$othBet += $this->_mReversi->getBetCnt($othColor[i]);	// 対戦相手のコマ数
+						}
 						$ownBet = $this->_mReversi->getBetCnt($color);				// 自分のコマ数
 						$endZone = 0;
 						if (($loop - ($othBet + $ownBet)) <= 16) $endZone = 1;		// ゲーム終盤フラグON
@@ -648,7 +670,7 @@ class ReversiPlay
 					}
 
 					if ($this->_mReversi->setMasuSts($color, $setY, $setX) == 0) {
-						if ($this->_mSetting->getmType() == ReversiConst::$DEF_TYPE_HARD) $this->_mReversi->AnalysisReversi($this->_mPassEnaB, $this->_mPassEnaW);
+						if ($this->_mSetting->getmType() == ReversiConst::$DEF_TYPE_HARD) $this->_mReversi->AnalysisReversi($this->_mPassEnaB, $this->_mPassEnaW, $this->_mPassEnaL, $this->_mPassEnaR);
 						$this->sendDrawMsg($setY, $setX);							// 描画
 						$update = 1;
 					}
@@ -758,11 +780,25 @@ class ReversiPlay
 		$this->_mReversi->reset();
 		if ($this->_mSetting->getmMode() == ReversiConst::$DEF_MODE_ONE) {
 			if ($this->_mCurColor == ReversiConst::$REVERSI_STS_WHITE) {
-				$pCnt = $this->_mReversi->getPointCnt(ReversiConst::$REVERSI_STS_BLACK);
-				$pInfo = $this->_mReversi->getPoint(ReversiConst::$REVERSI_STS_BLACK, rand(0,$pCnt));
-				if ($pInfo != NULL) {
-					$this->_mReversi->setMasuSts(ReversiConst::$REVERSI_STS_BLACK, $pInfo->gety(), $pInfo->getx());
-					if ($this->_mSetting->getmType() == ReversiConst::$DEF_TYPE_HARD) $this->_mReversi->AnalysisReversi($this->_mPassEnaB, $this->_mPassEnaW);
+				$tmpCol = 0;
+				$pCnt = 0;
+				$nxCol = 0;
+				$pInfo = NULL;
+				$tmpCol = ReversiConst::$REVERSI_STS_BLACK;
+				for(;;){
+					$pCnt = $this->_mReversi->getPointCnt($tmpCol);
+					if($pCnt != 0)	$pInfo = $this->_mReversi->getPoint($tmpCol,rand(0,$pCnt));
+					else			$pInfo = NULL;
+					if($pInfo != NULL){
+						$this->_mReversi->setMasuSts($tmpCol,$pInfo->gety(),$pInfo->getx());
+						if($this->_mSetting->getmType() == ReversiConst::$DEF_TYPE_HARD) $this->_mReversi->AnalysisReversi($this->_mPassEnaB,$this->_mPassEnaW,$this->_mPassEnaL,$this->_mPassEnaR);
+					}
+					$nxCol = $this->getNextCol($tmpCol);
+					if($nxCol == $this->_mCurColor){
+						break;
+					}else{
+						$tmpCol = $nxCol;
+					}
 				}
 			}
 		}
@@ -775,6 +811,27 @@ class ReversiPlay
 		// *** 終了通知 *** //
 		// *** メッセージ送信 *** //
 		$this->execMessage(ReversiConst::$LC_MSG_DRAW_END, NULL);
+	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	///	@brief			次の色取得
+	///	@fn				public function getNextCol($color)
+	///	@param[in]		$color	現在の色
+	///	@return			次の色
+	///	@author			Yuta Yoshinaga
+	///	@date			2018.03.02
+	///
+	////////////////////////////////////////////////////////////////////////////////
+	public function getNextCol($color)
+	{
+		$ret = $color;
+
+		if($color == ReversiConst::$REVERSI_STS_BLACK)		$ret = ReversiConst::$REVERSI_STS_WHITE;
+		else if($color == ReversiConst::$REVERSI_STS_WHITE)	$ret = ReversiConst::$REVERSI_STS_BLUE;
+		else if($color == ReversiConst::$REVERSI_STS_BLUE)	$ret = ReversiConst::$REVERSI_STS_RED;
+		else												$ret = ReversiConst::$REVERSI_STS_BLACK;
+
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -791,6 +848,8 @@ class ReversiPlay
 		if ($this->_mSetting->getmEndAnim() == ReversiConst::$DEF_END_ANIM_ON) {
 			$bCnt = $this->_mReversi->getBetCnt(ReversiConst::$REVERSI_STS_BLACK);
 			$wCnt = $this->_mReversi->getBetCnt(ReversiConst::$REVERSI_STS_WHITE);
+			$lCnt = $this->_mReversi->getBetCnt(ReversiConst::$REVERSI_STS_BLUE);
+			$rCnt = $this->_mReversi->getBetCnt(ReversiConst::$REVERSI_STS_RED);
 
 			// *** 色、コマ数表示消去 *** //
 			// *** メッセージ送信 *** //
@@ -811,8 +870,12 @@ class ReversiPlay
 			// *** マス描画 *** //
 			$bCnt2 = 0;
 			$wCnt2 = 0;
+			$lCnt2 = 0;
+			$rCnt2 = 0;
 			$bEnd = 0;
 			$wEnd = 0;
+			$lEnd = 0;
+			$rEnd = 0;
 			for ($i = 0; $i < $this->_mSetting->getmMasuCnt(); $i++) {
 				for ($j = 0; $j < $this->_mSetting->getmMasuCnt(); $j++) {
 					if ($bCnt2 < $bCnt) {
@@ -829,7 +892,25 @@ class ReversiPlay
 					} else {
 						$wEnd = 1;
 					}
-					if ($bEnd == 1 && $wEnd == 1) {
+					if($bEnd == 1){
+						if($lCnt2 < $lCnt){
+							$lCnt2++;
+							$this->_mReversi->setMasuStsForcibly(ReversiConst::$REVERSI_STS_BLUE,$i,$j);
+							$this->sendDrawMsg($i,$j);
+						}else{
+							$lEnd = 1;
+						}
+					}
+					if($wEnd == 1){
+						if($rCnt2 < $rCnt){
+							$rCnt2++;
+							$this->_mReversi->setMasuStsForcibly(ReversiConst::$REVERSI_STS_RED,($this->_mSetting->getmMasuCnt() - 1) - $i,($this->_mSetting->getmMasuCnt() - 1) - $j);
+							$this->sendDrawMsg(($this->_mSetting->getmMasuCnt() - 1) - $i,($this->_mSetting->getmMasuCnt() - 1) - $j);
+						}else{
+							$rEnd = 1;
+						}
+					}
+					if($bEnd == 1 && $wEnd == 1 && $lEnd == 1 && $rEnd == 1){
 						break;
 					}else{
 						$this->WaitLocal($this->_mSetting->getmEndDrawInterVal());
@@ -953,17 +1034,21 @@ class ReversiPlay
 		} else if ($what == ReversiConst::$LC_MSG_CUR_COL) {
 			$tmpStr = "";
 			if ($this->_mSetting->getmMode() == ReversiConst::$DEF_MODE_ONE) {
-				if ($this->_mCurColor == ReversiConst::$REVERSI_STS_BLACK) $tmpStr = "あなたはプレイヤー1です ";
-				else $tmpStr = "あなたはプレイヤー2です ";
+				if ($this->_mCurColor == ReversiConst::$REVERSI_STS_BLACK)		$tmpStr = "あなたはプレイヤー1です ";
+				else if ($this->_mCurColor == ReversiConst::$REVERSI_STS_WHITE)	$tmpStr = "あなたはプレイヤー2です ";
+				else if ($this->_mCurColor == ReversiConst::$REVERSI_STS_BLUE)	$tmpStr = "あなたはプレイヤー3です ";
+				else															$tmpStr = "あなたはプレイヤー4です ";
 			} else {
-				if ($this->_mCurColor == ReversiConst::$REVERSI_STS_BLACK) $tmpStr = "プレイヤー1の番です ";
-				else $tmpStr = "プレイヤー2の番です ";
+				if ($this->_mCurColor == ReversiConst::$REVERSI_STS_BLACK)		$tmpStr = "プレイヤー1の番です ";
+				else if ($this->_mCurColor == ReversiConst::$REVERSI_STS_WHITE)	$tmpStr = "プレイヤー2の番です ";
+				else if ($this->_mCurColor == ReversiConst::$REVERSI_STS_BLUE)	$tmpStr = "プレイヤー3の番です ";
+				else															$tmpStr = "プレイヤー4の番です ";
 			}
 			$this->CurColMsgLocal($tmpStr);
 		} else if ($what == ReversiConst::$LC_MSG_CUR_COL_ERASE) {
 			$this->CurColMsgLocal("");
 		} else if ($what == ReversiConst::$LC_MSG_CUR_STS) {
-			$tmpStr = "プレイヤー1 = " . $this->_mReversi->getBetCnt(ReversiConst::$REVERSI_STS_BLACK) . " プレイヤー2 = " . $this->_mReversi->getBetCnt(ReversiConst::$REVERSI_STS_WHITE);
+			$tmpStr = "プレイヤー1 = " . $this->_mReversi->getBetCnt(ReversiConst::$REVERSI_STS_BLACK) . " プレイヤー2 = " . $this->_mReversi->getBetCnt(ReversiConst::$REVERSI_STS_WHITE) . " プレイヤー3 = " . $this->_mReversi->getBetCnt(ReversiConst::$REVERSI_STS_BLUE) . " プレイヤー4 = " . $this->_mReversi->getBetCnt(ReversiConst::$REVERSI_STS_RED);
 			$this->CurStsMsgLocal($tmpStr);
 		} else if ($what == ReversiConst::$LC_MSG_CUR_STS_ERASE) {
 			$this->CurStsMsgLocal("");

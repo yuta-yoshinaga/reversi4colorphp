@@ -284,6 +284,15 @@ class TestReversiPlay
 			else												echo " - [Error] reset() $cmpCnt / $execCnt FAILUR \n";
 
 			// *** TEST CASE 34 *** //
+			$var = $testObj->getNextCol(ReversiConst::$REVERSI_STS_BLACK);$allCnt++;
+			$execCnt = 0;
+			$cmpCnt = 0;
+			$execCnt++;
+			$cmpCnt++;
+			if($var == ReversiConst::$REVERSI_STS_WHITE){		echo " - [OK] getNextCol() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] getNextCol() $cmpCnt / $execCnt FAILUR \n";
+
+			// *** TEST CASE 35 *** //
 			$testObj->gameEndAnimExec();$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -292,7 +301,7 @@ class TestReversiPlay
 			if($execCnt == $cmpCnt){							echo " - [OK] gameEndAnimExec() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] gameEndAnimExec() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 35 *** //
+			// *** TEST CASE 36 *** //
 			$testObj->sendDrawMsg(0,0);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -301,7 +310,7 @@ class TestReversiPlay
 			if($execCnt == $cmpCnt){							echo " - [OK] sendDrawMsg() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] sendDrawMsg() $cmpCnt / $execCnt FAILUR \n";
 
-			// *** TEST CASE 36 *** //
+			// *** TEST CASE 37 *** //
 			$testObj->sendDrawInfoMsg(0,0);$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;

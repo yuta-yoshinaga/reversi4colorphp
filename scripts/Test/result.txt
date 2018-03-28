@@ -396,21 +396,32 @@ Wait : 100
 DrawSingle : 0 3 1 0 0
 DrawSingle : 11 8 2 0 0
 Wait : 100
+DrawSingle : 0 4 3 0 0
+DrawSingle : 11 7 4 0 0
+Wait : 100
+DrawSingle : 0 5 3 0 0
+DrawSingle : 11 6 4 0 0
+Wait : 100
+DrawSingle : 0 6 3 0 0
+DrawSingle : 11 5 4 0 0
+Wait : 100
+DrawSingle : 0 7 3 0 0
+DrawSingle : 11 4 4 0 0
+Wait : 100
 Wait : 0
-ViewMsgDlg : ゲーム終了 プレイヤー1 = 4 プレイヤー2 = 4引き分けです。
-CurColMsg : あなたはプレイヤー2です 
-CurStsMsg : プレイヤー1 = 4 プレイヤー2 = 4
+ViewMsgDlg : ゲーム終了 プレイヤー1 = 4 プレイヤー2 = 4 プレイヤー3 = 4 プレイヤー4 = 4引き分けです。
+CurColMsg : あなたはプレイヤー4です 
+CurStsMsg : プレイヤー1 = 4 プレイヤー2 = 4 プレイヤー3 = 4 プレイヤー4 = 4
  - [OK] reversiPlayEnd() SUCCESS
-ViewMsgDlg :  CPUはパスです。
  - [OK] reversiPlayPass() SUCCESS
 DrawSingle : 0 0 1 0 0
 DrawSingle : 0 1 1 0 0
 DrawSingle : 0 2 1 0 0
 DrawSingle : 0 3 1 0 0
-DrawSingle : 0 4 0 0 0
-DrawSingle : 0 5 0 0 0
-DrawSingle : 0 6 0 0 0
-DrawSingle : 0 7 0 0 0
+DrawSingle : 0 4 3 0 0
+DrawSingle : 0 5 3 0 0
+DrawSingle : 0 6 3 0 0
+DrawSingle : 0 7 3 0 0
 DrawSingle : 0 8 0 0 0
 DrawSingle : 0 9 0 0 0
 DrawSingle : 0 10 0 0 0
@@ -539,27 +550,27 @@ DrawSingle : 11 0 0 0 0
 DrawSingle : 11 1 0 0 0
 DrawSingle : 11 2 0 0 0
 DrawSingle : 11 3 0 0 0
-DrawSingle : 11 4 0 0 0
-DrawSingle : 11 5 0 0 0
-DrawSingle : 11 6 0 0 0
-DrawSingle : 11 7 0 0 0
+DrawSingle : 11 4 4 0 0
+DrawSingle : 11 5 4 0 0
+DrawSingle : 11 6 4 0 0
+DrawSingle : 11 7 4 0 0
 DrawSingle : 11 8 2 0 0
 DrawSingle : 11 9 2 0 0
 DrawSingle : 11 10 2 0 0
 DrawSingle : 11 11 2 0 0
 Wait : 50
-DrawSingle : 11 8 2 0 0
-CurColMsg : あなたはプレイヤー2です 
-CurStsMsg : プレイヤー1 = 4 プレイヤー2 = 4
+DrawSingle : 11 4 4 0 0
+CurColMsg : あなたはプレイヤー4です 
+CurStsMsg : プレイヤー1 = 4 プレイヤー2 = 4 プレイヤー3 = 4 プレイヤー4 = 4
  - [OK] drawUpdate() SUCCESS
 DrawSingle : 0 0 1 0 0
 DrawSingle : 0 1 1 0 0
 DrawSingle : 0 2 1 0 0
 DrawSingle : 0 3 1 0 0
-DrawSingle : 0 4 0 0 0
-DrawSingle : 0 5 0 0 0
-DrawSingle : 0 6 0 0 0
-DrawSingle : 0 7 0 0 0
+DrawSingle : 0 4 3 0 0
+DrawSingle : 0 5 3 0 0
+DrawSingle : 0 6 3 0 0
+DrawSingle : 0 7 3 0 0
 DrawSingle : 0 8 0 0 0
 DrawSingle : 0 9 0 0 0
 DrawSingle : 0 10 0 0 0
@@ -688,10 +699,10 @@ DrawSingle : 11 0 0 0 0
 DrawSingle : 11 1 0 0 0
 DrawSingle : 11 2 0 0 0
 DrawSingle : 11 3 0 0 0
-DrawSingle : 11 4 0 0 0
-DrawSingle : 11 5 0 0 0
-DrawSingle : 11 6 0 0 0
-DrawSingle : 11 7 0 0 0
+DrawSingle : 11 4 4 0 0
+DrawSingle : 11 5 4 0 0
+DrawSingle : 11 6 4 0 0
+DrawSingle : 11 7 4 0 0
 DrawSingle : 11 8 2 0 0
 DrawSingle : 11 9 2 0 0
 DrawSingle : 11 10 2 0 0
@@ -700,10 +711,10 @@ DrawSingle : 0 0 1 0 0
 DrawSingle : 0 1 1 0 0
 DrawSingle : 0 2 1 0 0
 DrawSingle : 0 3 1 0 0
-DrawSingle : 0 4 0 0 0
-DrawSingle : 0 5 0 0 0
-DrawSingle : 0 6 0 0 0
-DrawSingle : 0 7 0 0 0
+DrawSingle : 0 4 3 0 0
+DrawSingle : 0 5 3 0 0
+DrawSingle : 0 6 3 0 0
+DrawSingle : 0 7 3 0 0
 DrawSingle : 0 8 0 0 0
 DrawSingle : 0 9 0 0 0
 DrawSingle : 0 10 0 0 0
@@ -832,16 +843,16 @@ DrawSingle : 11 0 0 0 0
 DrawSingle : 11 1 0 0 0
 DrawSingle : 11 2 0 0 0
 DrawSingle : 11 3 0 0 0
-DrawSingle : 11 4 0 0 0
-DrawSingle : 11 5 0 0 0
-DrawSingle : 11 6 0 0 0
-DrawSingle : 11 7 0 0 0
+DrawSingle : 11 4 4 0 0
+DrawSingle : 11 5 4 0 0
+DrawSingle : 11 6 4 0 0
+DrawSingle : 11 7 4 0 0
 DrawSingle : 11 8 2 0 0
 DrawSingle : 11 9 2 0 0
 DrawSingle : 11 10 2 0 0
 DrawSingle : 11 11 2 0 0
-CurColMsg : あなたはプレイヤー2です 
-CurStsMsg : プレイヤー1 = 4 プレイヤー2 = 4
+CurColMsg : あなたはプレイヤー4です 
+CurStsMsg : プレイヤー1 = 4 プレイヤー2 = 4 プレイヤー3 = 4 プレイヤー4 = 4
  - [OK] drawUpdateForcibly() SUCCESS
 DrawSingle : 0 0 0 0 0
 DrawSingle : 0 1 0 0 0
@@ -1132,8 +1143,9 @@ DrawSingle : 11 9 0 0 0
 DrawSingle : 11 10 0 0 0
 DrawSingle : 11 11 0 0 0
 CurColMsg : あなたはプレイヤー1です 
-CurStsMsg : プレイヤー1 = 4 プレイヤー2 = 4
+CurStsMsg : プレイヤー1 = 4 プレイヤー2 = 4 プレイヤー3 = 4 プレイヤー4 = 4
  - [OK] reset() SUCCESS
+ - [OK] getNextCol() SUCCESS
 CurColMsg : 
 CurStsMsg : 
 Wait : 500
@@ -1293,12 +1305,24 @@ Wait : 100
 DrawSingle : 0 3 1 0 0
 DrawSingle : 11 8 2 0 0
 Wait : 100
+DrawSingle : 0 4 3 0 0
+DrawSingle : 11 7 4 0 0
+Wait : 100
+DrawSingle : 0 5 3 0 0
+DrawSingle : 11 6 4 0 0
+Wait : 100
+DrawSingle : 0 6 3 0 0
+DrawSingle : 11 5 4 0 0
+Wait : 100
+DrawSingle : 0 7 3 0 0
+DrawSingle : 11 4 4 0 0
+Wait : 100
  - [OK] gameEndAnimExec() SUCCESS
 DrawSingle : 0 0 1 0 0
  - [OK] sendDrawMsg() SUCCESS
 DrawSingle : 0 0 1 0 0
  - [OK] sendDrawInfoMsg() SUCCESS
 **************************
-[TestReversiPlay] End 36 / 36 SUCCESS
+[TestReversiPlay] End 37 / 37 SUCCESS
 
-execute [Test.php] 2018/03/26 16:10:10 successed! 処理時間 : 0.59033012390137 sec
+execute [Test.php] 2018/03/28 14:15:00 successed! 処理時間 : 0.58691620826721 sec
